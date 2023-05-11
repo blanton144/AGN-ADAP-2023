@@ -1,0 +1,938 @@
+\documentclass[12pt, preprint]{hacked-aastex}
+\usepackage{titlesec, hyperref, mdwlist, wrapfig, mdframed, enumitem}
+\usepackage[style=numeric]{biblatex}
+
+\bibliography{blanton}
+
+\setlength{\topmargin}{0in}% 
+\setlength{\headsep}{0in}% 
+\setlength{\headheight}{0in}% 
+\setlength{\textheight}{8.8in}% 
+
+\newlength{\mylen}
+
+\newenvironment{ditemize}
+{ \begin{list}{}{%
+\setlength{\topsep}{0pt}% 
+\setlength{\partopsep}{3pt}% 
+\setlength{\itemsep}{1pt}\setlength{\parsep}{1pt}% 
+\setlength{\itemindent}{0pt}\setlength{\listparindent}{12pt}%
+\setlength{\leftmargin}{24pt}\setlength{\rightmargin}{0in}%
+\setlength{\labelsep}{6pt}\setlength{\labelwidth}{6pt}%
+\setlength{\mylen}{3pt}
+\renewcommand{\makelabel}{\makebox[\labelwidth][l]{\raisebox{\mylen}{\tiny$\bullet$}\hspace{\fill}}}}}
+{\end{list}}
+
+
+\begin{document}
+
+\pagestyle{plain}
+\titlespacing*{\section}{0pt}{0pt}{0.5\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip}
+%\titleformat{\section}{\bfseries}{\thesection.}{1em}{} 
+
+\newcommand{\imtxt}[1]{\textcolor{red}{#1}}
+\newcommand{\imsout}[1]{\textcolor{red}{\sout{#1}}}
+
+\title{{\large Characterizing the local population of mid-infrared-emitting active galactic nuclei}}
+
+\maketitle
+
+{\hypersetup{hidelinks} \tableofcontents }
+
+% Show distribution of galaxy propertW
+
+\newpage
+\section{Summary}\label{sec:summary}
+
+Unveiling the growth and development of galaxies is one of the 
+``prime objectives'' of NASA's Cosmic Origins program. 
+Active galactic nuclei, powered by accretion onto supermassive 
+black holes at the centers of galaxies, are thought to play an 
+important role in the
+evolution of galaxies by regulating and possibly quenching the
+formation of stars.  For this reason, the Cosmic Origins 
+program describes the history and evolution of supermassive 
+black holes as one of the focuses of the program.
+For similar reasons, the National Academy of Sciences' 
+Decadal Survey report ``Pathways to Discovery in Astronomy and
+Astrophysics for the 2020s'' describes the study the growth of the 
+supermassive black hole population as essential to its priority 
+science area, ``Unveiling the Hidden Drivers of Galaxy Growth.''
+
+We propose to characterize the population of mid-infrared-emitting
+active galactic nuclei (AGN) in the local universe using data from 
+the Wide-field  Infrared Survey Explorer, Spitzer Space Telescope, 
+Herschel Space Observatory, IRAS, and GALEX, combined with 
+ground-based data from the Sloan Digital Sky Survey IV (SDSS-IV;
+\cite{blanton17a}). 
+Our work builds on the Mapping Nearby Galaxies at APO
+survey (MaNGA; \cite{bundy15a}), which provides optical integral
+field spectroscopy for 10,000 galaxies at redshifts $z<0.15$. 
+The ultraviolet and infrared data available from  the aforementioned
+NASA projects provides a powerful window into the AGN population.
+
+Our primary goal will be to validate a new selection criterion 
+for mid-infrared AGN that promises to increase the AGN sample by 
+a factor of three and to extend the sample to lower Eddington ratios.
+We also will be to place upper limits on mid-infrared AGN emission
+on a galaxy-by-galaxy basis; these upper limits contain
+essential information about the AGN population, but have not 
+been determined previously.
+With the sample, we will constrain the local Eddington ratio 
+distribution as measured in the mid-infrared as a function of 
+galaxy properties, and compare the mid-infrared emission to other 
+AGN manifestations such as optical narrow lines and ratio emission. 
+
+%\newpage
+\section{Objectives \& Relevance: AGN and Galaxy Evolution}\label{sec:intro}
+
+We want to understand more accurately the local population of AGN because
+they are potentially a key piece of the galaxy formation puzzle.
+A central question in galaxy formation is why the most massive
+galaxies have not converted more of their available baryons into stars,
+and are not still doing so. This question has existed in some form or 
+other since at least the work of \cite{white78a}, when the first models 
+of galaxy formation
+inside of dark matter halos predicted highly efficient cooling of
+gas. As $N$-body and hydrodynamic simulations became more sophisticated 
+this problem shifted in many details but essentially remained the same: 
+the halo mass function extends nearly as a power law to high masses, whereas 
+the galaxy stellar mass function cuts off as nearly an exponential. 
+A na\"ive application of gas cooling physics to cosmological hydrodynamic
+simulations predicts that the stellar mass function should more closely follow the halo mass function \cite{benson03a, somerville15a}.
+
+Many solutions have been considered, and under the right set of assumptions
+several of them are tenable, but the most commonly held assumption is that
+the tremendous energy output by AGN in massive galaxies is implicated somehow
+in heating and possibly driving out the gas, preventing excessive star formation.
+
+This solution has several attractions, summarized in \cite{fabian12}. The AGN 
+are highly efficient generators
+of energy for heating and winds, which are indeed observed to be acting in a 
+number of cases. Back-of-the-envelope calculations suggest that 
+AGN-produced
+radiation pressure on dust in gas can act as negative feedback naturally limiting
+accretion onto a galaxy. The $M_{\rm BH}$--$\sigma$ relation appears to point
+to some sort of co-evolution of galaxies and their black holes. Finally, 
+hydrodynamic simulations reproduce key observables only with AGN feedback: 
+the fractions of  quenched massive galaxies found in isolation and the stellar 
+mass function  itself \cite{somerville15a, wellons22a}.
+
+This situation, however, is not ``case closed.'' The hydrodynamic simulations:
+\begin{itemize}
+\item Have their AGN feedback and other parameters tuned to fit
+certain observations; to show whether the model is actually correct, we need to 
+test additional predictions;
+\item Each have different, sometimes dramatically different, methods for applying
+AGN feedback, which yield different relationships between AGN activity and 
+galaxy properties. 
+\end{itemize}
+{\bf So which of these various theories of AGN feedback (if any) describes
+the real universe? An important prediction we intend to test is what they 
+predict about the population of AGN in galaxies today.}
+
+In detail, the simulations cannot follow black hole seeding, growth, and AGN feedback
+from first principles. These processes all are governed by physics
+on orders of magnitude smaller scales than the simulation resolution, so
+require subgrid prescriptions.
+Generally black hole growth is modeled with 
+Bondi-Hoyle-Lyttleton accretion \cite{edgar04a}, but with details varying 
+between simulations. The accretion model determines the accretion rate, 
+which is often expressed as the Eddington ratio $\lambda$ between 
+the actual rate and the Eddington rate, the maximum rate for spherical accretion 
+onto a black hole of a given mass.
+
+The feedback prescriptions vary more widely. There are two basic types 
+of feedback implemented: thermal feedback (i.e. inserting thermal energy
+into the gas surrounding the black halos) and kinetic feedback (inserting
+momentum into the gas surrounding the black holes). 
+Table \ref{table:feedback} summarizes how these are used. 
+Some simulations use 
+one of these types, some use the other, and some use both, with the 
+choice dependent on the Eddington ratio $\lambda$. IllustrisTNG and 
+Horizon-AGN
+use the most ``natural'' choices: the high $\lambda$
+mode uses thermal feedback, which best corresponds to the 
+observational radiative/thermal/quasar mode, and the 
+low $\lambda$ mode uses
+kinetic feedback, which best corresponds to the observational
+kinetic/jet/radio mode. 
+IllustrisTNG uses an extra dimension of parametric freedom to 
+allow the Eddington ratio division 
+between these modes to vary with black hole mass. 
+In cases like SIMBA and Illustris,
+although the basic type of feedback is unchanged, the exact implementation
+does change between low and high accretion.
+
+These various refinements of the AGN feedback methodology have 
+been designed
+to best recover galaxy properties. All of the simulations recover
+basic scaling relations and demographics of galaxies reasonably well,
+though many of these methods still struggle to fully quench the most
+massive galaxies. 
+
+
+\begin{table}[t!]
+\caption{\label{table:feedback} 
+AGN Feedback Methods In Cosmological Simulations\\ ~}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Simulation & Eddington Ratio Criterion & High $\lambda$ Mode & Low $\lambda$ Mode \cr
+\hline
+\hline
+Illustris \cite{sijacki15a} & 0.05 & Thermal & Thermal \cr
+IllustrisTNG \cite{weinberger17a} & 0.002---0.1 & Thermal & Kinetic \cr
+Horizon-AGN \cite{dubois14a} & 0.01 & Thermal & Kinetic \cr
+SIMBA \cite{dave19a} & 0.2 & Kinetic & Kinetic \cr
+EAGLE \cite{schaye15a} & --- & \multicolumn{2}{c|}{Thermal} \cr
+NIHAO \cite{blank19a} & --- & \multicolumn{2}{c|}{Thermal} \cr
+\hline
+\end{tabular}
+\end{table}
+
+The investigation of \cite{habouzit22a} shows that these predictions 
+vary dramatically in Eddington ratio distributions and their dependence
+on galaxy properties, particularly on stellar mass. For example, some
+of the Eddington ratio
+distributions increase with mass, some decrease, some are non-monotonic.
+{\bf These differences between the simulations' predictions for the 
+Eddington ratio distribution as a function of host galaxy properties
+provide a critical test of galaxy formation models.}
+
+Note that the work of \cite{habouzit22a} also underscores some of the difficulties
+of this prediction and its comparison to observations. 
+The AGN accretion and feedback models need to be converted into some
+estimate of observables. The AGN observables are X-ray luminosity, 
+broad line emission, narrow line emission, IR emission, and radio 
+emission. The X-ray and optical line emission (particularly the broad
+line emission) is further modified by dust obscuration in the 
+surroundings of the AGN, which cannot  directly be predicted from
+the simulations. {\bf These difficulties motivate the better
+observational understanding the joint distribution of these multiwavelength 
+signatures of AGN.}
+
+In this work, we propose to unveil a larger population of mid-infrared 
+emitting AGN than it was previously possible to reliably detect, and 
+to also set accurate upper limits on what AGN can exist. These 
+measurements will greatly enhance our understanding of the population
+of low redshift AGN and its relation to galaxy host properties. 
+
+\section{Scientific Impacts: AGN host galaxies and Eddington ratio distributions}\label{sec:intro}
+
+The major goal of our group's work is to constrain the 
+distribution of AGN luminosities as probed in many ways 
+(e.g. radio, infrared, optical narrow lines, and X-rays)
+as a function of stellar mass $M_\ast$, velocity dispersion 
+$\sigma_v$, and star formation rate:
+\begin{equation}
+\label{eq:model}
+\Phi\left(L_{\rm radio}, L_{\rm IR}, L_{\rm OIII}, L_X | M_\ast, \sigma_v, {\rm SFR}\right),
+\end{equation}
+Surprisingly, observational constraints 
+on this distribution are not as well-understood as they could be, and 
+much of the literature on the subject is riddled with 
+difficult-to-understand selection effects.
+
+The underlying problem is that AGN
+manifest in a variety of different ways, depending both
+on their intrinsic state and on the viewing angle of 
+the observer, and across all wavelengths of light. 
+To make things more complicated, their signatures are
+often in competition with stellar emission and interstellar
+gas emission. These effects lead to some
+persistent biases in observational findings that are
+not always accounted for. 
+
+In this work we propose to advance the understanding of the 
+distribution of infrared luminosities $L_{\rm IR}$. Using 
+several samples of low redshift galaxies, we intend to measure
+AGN-related emission luminosities for detected AGN {\it and} 
+upper limits for galaxies without detected AGN. We also will
+probe lower luminosity and Eddington ratio AGN than were previously
+identified in low redshift samples.
+
+{\bf New observations of the low redshift universe present an 
+opportunity to make progress on these questions}. Specific
+motivations for revisiting this question are:
+\begin{ditemize}
+\item
+With the Sloan Digital 
+Sky Survey's Mapping Nearby Galaxies at APO (MaNGA) program, we can measure low
+redshift galaxies exquisitely well, and separate spatially the AGN and 
+galaxy emission (\cite{bundy15a, blanton17a}). 
+Our analysis takes advantage of 10,000 potential AGN host galaxies from
+MaNGA with  high signal-to-noise ratio measurements of stellar mass, velocity
+dispersion, star formation rate, and other parameters.
+\item Existing surveys in the infrared (IR) from the Wide-field Infrared Survey Explorer 
+(WISE; \cite{wright10a}) are well matched to find mid-IR AGN in MaNGA galaxies 
+\cite{comerford20a}. But previous searches for AGN in WISE have focused on
+the most extreme AGN, whereas lower Eddington ratio AGN are readily identifiable
+but have not been studied previously.
+\item The Spitzer Space Telescope archive has mid-IR spectroscopy of galaxies in MaNGA
+and other nearby galaxies, which we can use to validate the lower Eddington ratio 
+cases. 
+\end{ditemize}
+
+In this work, we will utilize these new resources to answer the 
+critical question of how AGN populate host galaxies in the low redshift
+universe. The impact of this work will be to:
+\begin{itemize}
+    \item Expand the potential sample of mid-IR emitting AGN in the local universe 
+     by a factor of three, and extending to lower Eddington ratios and
+     luminosities, by validating a new selection technique. 
+    \item Provide observational constraints on galaxy formation theory from 
+     the Eddington ratio  distribution  of mid-IR emitting  AGN as a function of
+     stellar mass,  velocity dispersion, and star formation rate, inform galaxy
+     formation models.
+    \item Explore the relationship between different manifestations of AGN
+    (optical narrow line, X-ray, ratio, mid-IR) as a function of host galaxy 
+    properties. 
+\end{itemize}
+
+The extensive knowledge we have about these galaxies from MaNGA means we 
+can robustly validate the new selection criterion for use in larger 
+samples (with less information per galaxy) such as the SDSS Legacy 
+Survey and the DESI Bright Galaxy Survey. Doing so will massively 
+increase the power of the legacy WISE data set for the purposes of 
+selecting AGN in the local universe.
+
+The mid-IR-based bolometric luminosity distribution of 
+AGN and its evolution has been measured by massive samples 
+of AGN selected in this way \cite{lacy15a}. However, it is 
+ambiguous how these AGN relate to their underlying host galaxies
+and the black holes themselves, because for these samples
+relatively little can be inferred about their host galaxies.
+The galaxies tend to be faint, higher redshift, 
+outshone in many cases by their AGN,
+and poorly resolved.
+This lack of information also makes it difficult 
+to account for systematic
+differences between low mass and high mass galaxies in 
+selecting AGN; star formation in low mass galaxies may
+be more easily confused with AGN 
+because they are lower metallicity and consequently 
+have less PAH emission and hotter dust
+\cite{hainline16a, sajina22a}. Thus, although the conclusions of these 
+studies are that at a given inferred bolometric luminosity,
+mid-IR detected AGN are more populous than X-ray or optical
+narrow line AGN, the origin of this difference is hard to
+interrogate.
+
+\section{Methods of Proposed Work\label{sec:methods}}
+
+To achieve the goals laid out above to advance our understanding 
+of AGN in the local universe, we use the following methods;
+\begin{itemize}
+    \item We use a low redshift sample of galaxies from MaNGA with 
+    jointly analyzed WISE data (the MaNGA NASA Sloan Atlas or MNSA).
+    \item We use a newly developed, more sensitive criterion to 
+    identify AGN 
+    \item We use SED modeling methods to derive the mid-infrared AGN 
+    luminosities and upper limits for all 10,000 MaNGA galaxies. 
+    \item We analyze Spitzer Space Telescope spectra to validate our 
+    classifications and measurements of mid-IR 
+    AGN luminosities using Spitzer Space Telescope data. 
+    \item We perform a maximum likelihood analysis using mid-IR AGN luminosities 
+     and upper limits to constrain the Eddington ratio  distribution as a 
+     function of galaxy properties.
+    \item We compare the mid-IR AGN luminosity distribution to other manifestations 
+    of AGN in this sample.
+\end{itemize}
+
+\subsection{The MaNGA NASA Sloan Atlas}
+
+MaNGA comprises the best understood sample of 10,000 galaxies in the universe, 
+with comprehensive integral field spectroscopy in the  optical, constraining 
+galaxies' central velocity dispersion, star formation history, ionized gas properties,
+and dynamics. WISE photometry detects every MaNGA galaxy and provides important 
+information about their AGN and star formation activity that we will make use of
+here. We will make use here of a combination of GALEX, MaNGA, and WISE 
+data created in previous research, called the MaNGA NASA Sloan Atlas (MNSA).
+
+The MaNGA measurements provide an immense amount of ancillary information,
+unparalleled in any other sample of its size, and we do not need to perform
+analysis with this grant to extract this information, but can rely on
+already-published analyses.
+MaNGA spectroscopy extends out to at least 1.5$R_e$ for every observed galaxy, 
+allowing inference of reliable stellar masses and star formation rates
+from stellar population analysis \cite{sanchez22a}, dynamics (e.g. \cite{graham18a}), ionized
+gas properties (e.g., \cite{belfiore17a}), and many other properties. 
+These  galaxies have a median redshift of $z\sim0.03$, with the sample extending
+out to $z\sim 0.15$, and the physical spatial resolution
+is typically around 1--2 kpc. They have been selected in a well-defined
+way as a function of mass and color, so that each MaNGA Main Sample
+galaxy's relative probability of having been observed is known,
+making the sample suitable for statistical study \cite{wake17a}.
+
+This sample has some important advantages for conducting a 
+statistical study of AGN with low redshift galaxies.
+Star formation rates over the past 100 Myrs can be inferred from the stellar
+population analysis, which avoids dependence on the H$\alpha$ emission,
+which could be contaminated by the presence of an AGN.
+The high signal-to-noise ratio stellar velocity dispersion maps  can provide 
+an estimate of the central black hole using the $M_{\rm BBH}$-$\sigma$ 
+relationship \cite{kormendy04b}. The narrow line measurements allow us to 
+find nuclear narrow line regions as well as extended narrow line regions
+and outflows. The sample is low enough redshift that essentially
+every galaxy has informative detections in WISE.
+
+Because we start with a galaxy sample with a well-understood selection,
+we can also use this sample for accurate population measurements, for example
+constraints on the Eddington ratio distribution as a function of galaxy
+mass, star formation rate, metallicity, or other properties.
+As argued by \cite{aird12a} in the context of X-ray selection, this situation 
+contrasts  with samples {\it selected} on their AGN-ness, for which the host 
+galaxy properties are biased at best but often inaccessible entirely. 
+
+In previous work we have performed careful photometry from GALEX
+and WISE images for all MaNGA galaxies, and created ultraviolet, optical, 
+and mid-infrared images on a common sampling. The resulting MNSA catalog
+will be the basis of our work here.
+
+\subsection{Identifying AGN in WISE: A New Criterion}
+
+We use the W1, W2, and W3 bands, along with the star formation rates 
+and gas-phase metallicities determined for MaNGA galaxies, to identify
+mid-IR emitting AGN, to estimate their luminosities (accounting for the
+contribution of star formation), and to estimate upper limits on the 
+mid-IR AGN luminosities for galaxies without detections.
+
+AGN often manifest with mid-IR emission from dust in the periphery 
+of the accretion disk heated to close to sublimation temperatures, considerably
+hotter than dust temperatures in star forming regions. 
+The W1$-$W2 color (i.e. the 4.6 $\mu$m to 3.4 $\mu$m flux ratio) 
+is sensitive to this AGN emission because 
+so stellar populations have a roughly uniform W1$-$W2 color because 
+those bands are in the Rayleigh-Jeans regime.
+Meanwhile, dust heated by star formation does not get to high
+enough temperature to contribute much to W2, nor do most PAH
+lines.  
+The W1$-$W2 color of a star forming host can be inferred
+from its star formation rate (or from its W2$-$W3 color).
+Therefore, a W1$-$W2 color redder than that predicted 
+from its star formation history suggests the presence
+of hot dust indicative of an AGN. 
+
+Figure \ref{fig:wise} illustrates these effects, showing
+the relationship between this color and 
+the specific SFR of MaNGA galaxies in  from \cite{sanchez22a}.
+At low W1$-$W2, there is 
+a tight sequence of points with a clear sSFR dependence; for
+these galaxies, both bands are dominated by the host galaxy. 
+For the reasons described above, the presence of an AGN and its
+attendant hot dust leads to 
+redder W1$-$W2, and the ``spray'' of points above the
+tight sequence are likely to be AGN. 
+
+\begin{figure}[t!]
+\includegraphics[width=0.64\textwidth]{w1w2-vs-ssfr.png}
+\includegraphics[width=0.35\textwidth]{ir-grid.drawio.png}
+  \vspace{-22pt}
+    \caption{
+\label{fig:wise} \small Mid-IR AGN detection. 
+The left panel shows W1$-$W2 colors (AB) of MaNGA galaxies vs 
+star formation rate determined from the optical stellar population fits. 
+The dotted line is the commonly used AGN criteria from \cite{assef18a}.
+The grey line is designed to follow the dependence of W1$-$W2
+on SFR, and (with care taken to validate it) could provide a 
+more complete census of IR AGN from the MaNGA sample. The right
+panel shows two example AGN selected in the mid-IR. 
+The mid-IR WISE image shows the characteristic blue color
+of stellar populations
+in the outer parts of the disk and central region shows 
+the redder W1$-$W2 colors (the red-green structure is due to
+mismatches in the PSFs of two bands). 
+Both galaxies show substantial [OIII] associated with the AGN.
+{\bf TODO: need to remove JWST points} {\bf TODO: anonymize the figure}}
+\end{figure}
+
+The upper dotted line shows the typical criterion used 
+to select AGN  (specifically, the most inclusive criterion from from 
+\cite{assef18a}, here translated to AB magnitudes). However, there are 
+many objects in between this criterion
+and the sequence of non-AGN. The reason that \cite{assef18a} and all other
+references choose such conservative criteria even in their most inclusive
+samples is that typically they do  not know much about the host galaxy properties. 
+The vast majority of WISE-detected AGN do not have a redshift and therefore 
+no appropriate $K$-correction. The observed-frame W1$-$W2 colors, without
+any known host galaxy color to compare to, is much less informative and therefore
+the criterion used must be much more conservative. Alternative  criteria to 
+those in \cite{assef18a} all are more conservative than the one shown in 
+Figure \ref{fig:wise} and therefore include even fewer  candidates 
+\cite{jarrett11a,stern12a}.
+
+For the MaNGA-based sample, we do not have these difficulties. We can 
+define a criterion that hews more tightly to the intrinsic host galaxy 
+distribution, defined by the lower dotted line. This new criterion
+increases the mid-IR emitting AGN candidate sample by a factor of three.
+
+\subsection{Measuring mid-IR AGN luminosities and upper limits}
+
+For every galaxy in this sample we seek to produce either a mid-IR AGN
+luminosity, or if an AGN is not identified an upper limit on its luminosity. 
+For every identified AGN according to the previous 
+section we will infer a 6 $\mu$m luminosity using an SED-based analysis
+of the photometry. 
+For every other galaxy, we will determine using a typical AGN SED what 
+6 $\mu$m luminosity it would have to have had in order to be classified
+as an AGN, placing thereby an upper limit on that luminosity.
+
+This task is more difficult for our new criterion than for more
+conservative criteria, because a greater fraction of the total
+luminosity is due to stars and star formation,
+and we need to account for this fraction. We can crudely estimate the 
+luminosity by ascribing the entire excess W2 flux over that expected 
+from the host galaxy given the grey line in Figure \ref{fig:wise} and 
+the W1 flux, and converting that W2 flux to a 6 $\mu$m luminosity. This
+estimate however is extremely simple and we will seek to improve
+upon it.
+
+We will do so using an SED fit including AGN and star formation components. 
+Figure \ref{fig:fits} shows examples of such fits applied using the
+{\tt kcorrect} Python package \cite{blanton07a}. In this case, we use  
+a large set of stellar population templates from the Flexible Stellar
+Population Synthesis models (FSPS; \cite{conroy09a}), along with a set of AGN
+templates from the ``Clumpy'' models \cite{nenkova08a}. However, this set
+of templates is too broad and does not incorporate the strong regularity 
+found in the observed galaxy population. 
+
+We will use dimensionality reduction techniques such as non-negative 
+matrix factorization to restrict the model space, retaining the ability
+to accurate replicate the mid-IR WISE colors and utilizing our knowledge
+of the star formation history from MaNGA.
+As we will discuss further in the next subsection, we will use Spitzer spectra 
+to constrain these SEDs as well.
+
+For each of the galaxies without a detected AGN, we need to derive an
+upper limit to the AGN luminosity. These upper limits are essential to 
+the statistical understanding of the population. They are necessary in 
+order to derive an accurate luminosity function or Eddington ratio
+distribution, and to explore the mid-IR AGN emission and other manifestations 
+of AGN in the presence of selection effects.
+
+In these cases, we will use pure FSPS fits without AGN to each galaxy, and
+test how luminous an AGN SED component can be added without exceeding the 
+color criterion we have adopted. The corresponding 6 $\mu$m luminosity 
+will be our adopted upper limit.
+
+There are substantial uncertainties in the determinations of luminosities
+and upper limits that we will discuss more fully in  Section 
+\ref{sec:difficulties}. In brief, we will test the sensitivity 
+of these calculations to the choices of underlying SED models by adopting 
+a suite of different choices. 
+
+%Eddington ratio about 0.6 dex lower than the standard AGN as selected
+%by \cite{assef18a}.
+
+\subsection{Analysis of Spitzer Space Telescope Spectra}
+
+With only broad-band WISE fluxes, there will be uncertainties in 
+the population of AGN unveiled with our new criterion, both in the 
+AGN identification and in the measurement of luminosity. To address 
+these uncertainties, we will make use of around 2,000 Spitzer Space Telescope
+spectra in the mid-IR compiled by \cite{lambrides}. Of this sample, 40 
+are in our MaNGA sample and can provide direct tests. 
+Figure \ref{fig} shows several examples of these spectra.
+Our technique will
+be to use traditional signatures and the shape of the spectrum to 
+inform our interpretation of the WISE photometry.
+
+We will 
+examine the relationship between W1$-$W2 and traditional signatures such 
+as the PAH 6.2 $\mu$m equivalent width. The PAH measurement is strong
+if the galaxy is dominated by star formation, but weak if the emission is 
+dominated by the AGN \cite{sajina22a}. 
+For the full sample of 2,000 spectra from \cite{lambrides}, 
+we will use strong PAH signatures to estimate 
+the outlier rate as a function of W1$-$W2. 
+The 40 galaxies with MaNGA data and Spitzer spectra will provide less 
+statistically powerful but more detailed information. In these cases,
+we can use MaNGA-based information on the gas metallicity to 
+control for the PAH strength dependence on metallicity.
+
+{\bf also talk about }
+
+We will assess and refine our SED fitting with the Spitzer spectra as well.
+In the case of the 40 galaxies with MaNGA and Spitzer data, we can
+directly compare the SED fitting results for the broad-band photometry
+to the detailed Spitzer spectra and assess its validity. For the
+other Spitzer spectra, we will fit using our models to synthesized
+photometry and then assess the results similarly. We will use the differences
+in broad-band spectral shape and in the prominence of the PAH lines to 
+refine our choice of FSPS and AGN template parameters to better 
+reflect the more detailed Spitzer spectra. 
+
+For a small number of the Spitzer spectra, we can also examine other
+AGN indicators. The spectra show high ionization lines, in particular
+[Ne V] 14.3 $\mu$m, [S IV] 10.5 $\mu$m, 
+[O IV] 26 $\mu$m, 
+which we expect to be good tracers of AGN activity and can 
+be used to validate the existence of a strong AGN.
+
+We expect that
+the [OIII] luminosity should correlate well with the mid-IR luminosity 
+at least for the more luminous AGN in our sample. Outliers in the 
+relationship between the two luminosities will be useful for tracking
+down potential errors in our analysis, though may also be genuine, 
+in which case they are potentially interesting objects. 
+
+\subsection{Eddington Ratio Distributions}
+
+The observations will provide a more solid basis for the 
+Eddington ratio measurements for these objects, through
+a better understanding of the black hole masses and the
+bolometric luminosities. For the MaNGA mid-IR sample, 
+the black hole masses are estimated from the stellar velocity
+dispersion through the $M_{\rm BH}$-$\sigma$ relation,
+and the bolometric luminosity is ambiguous because it is 
+hard to separate the AGN and host galaxy contributions 
+to each WISE broad band measurement. Only for about 
+half of the sample are [OIII] luminosities dominated 
+by the Seyfert emission and therefore usable as a
+bolometric luminosity estimate.
+Based on a training set with measured black hole masses,
+\cite{dasyra08a} concluded that the velocity dispersion of the 
+high ionization lines also can yield independent 
+indicators of the black hole mass. 
+This information will supplement the 
+measured stellar velocity dispersion to 
+corroborate (or contradict) our assumption that the 
+stellar velocity dispersion for these 
+sample correlates with black hole mass.
+Our
+estimates of the 15 $\mu$m AGN continuum and the high
+ionization line
+measurements will also produce estimates of the 
+bolometric luminosity \cite{dasyra08a, shen20a}, which we 
+can compare to [OIII] luminosities and also use 
+to bootstrap better estimators for the full sample
+based on the WISE broad band fluxes.
+
+[ERD models--uniform, mass, SFR and likelihood fits]
+
+[error estimation]
+
+\subsection{Comparison with Narrow Line, X-ray, and Radio AGN Manifestations}
+
+Other windows on AGN activity could be used to
+determine whether the candidate AGN's colors are
+actually due to an AGN,
+but none determine the origin of 
+the red W1$-$W2 colors as directly as simply getting
+mid-IR spectra can. The other AGN signatures that are
+expected to correlate to some degree with mid-IR 
+emission include optical narrow lines, 
+coronal line  emission, and X-ray emission.
+Figure \ref{fig:bpt} investigates the signatures of
+optical narrow line emission for these candidates;
+in summary, although the mid-IR AGN preferentially
+present as narrow line Seyferts, about half do not,
+and for those ones we cannot determine whether the 
+mid-IR colors are due to an AGN or not. Coronal
+line emission of high ionization species (e.g. from 
+[Ne V]  $\lambda$3347, $\lambda$3427)
+can be detected in the optical with MaNGA data 
+\cite{negus21a}, but is subject to obscuration. 
+Current X-ray data sets do not 
+cover a significant number of MaNGA galaxies, 
+near-future data sets like eROSITA are relatively 
+shallow for the purposes here, and X-ray 
+emission (particularly soft X-rays)
+are also subject to obscuration. 
+None of these windows on AGN activity outside the 
+mid-IR would answer
+our central question: whether the red W1$-$W2 is 
+due to AGN emission.
+
+\subsection{K-correct}
+
+Since about 2003, I have maintained a heavily used utility for fitting 
+SEDs called {\tt kcorrect}, 
+specifically with the goal of determining $K$-corrections, but also 
+with the side product of determining rough physical parameters for 
+galaxies. Recently I translated this utility into Python (from
+its older implementation in IDL) and made it publicly available, 
+and have created template sets including stellar populations and 
+dust emission in the mid- and far-infrared.
+
+In this project, I will be relying on {\tt kcorrect}, particularly 
+for the interpretation of the IR-emitting AGN. As a by-product 
+of this work, I will expand the templates in {\tt kcorrect} to 
+include AGN components. This will aid in the identification of 
+AGN in UV, optical, and IR data and in the determination of their
+luminosities.
+
+{\tt kcorrect} is a heavily utilized software product (with
+over 1000 citations) and its 
+continued maintenance in Python and the expansion of its 
+utility is an important by-product of this research.
+
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.91\textwidth]{bpt-agn.png}
+\end{center}
+\caption{\label{fig:bpt}
+The 
+[SII]-based line ratio diagram \cite{veilleux87a}
+with standard divisions into ionization source classes:
+star formation, LINER, and Seyfert \cite{kewley06a}. 
+We expect that essentially all AGN with substantial
+hot dust emission will also have an ionized narrow
+line region, whose emission line ratios would 
+be in the Seyfert region of this diagram if there
+was not competing emission from other components
+of the galaxy. Of all of our candidates, only about
+half have Seyfert classifications; the same is 
+true for the more conservative mid-IR criterion
+of \cite{assef18a}. For ones without a Seyfert
+classification, although it 
+is possible that the mid-IR
+colors may not be driven by an AGN,
+it also may be that the AGN narrow line
+emission may be outshown by star formation,
+which can easily happen at low Eddington ratios
+or high star formation rates \cite{trump15a}.
+In short, the optical line ratio diagnostics cannot answer
+the central question posed by this proposal---motivating
+the proposed direct measurements of the mid-IR spectrum for these targets.
+{\bf TODO: remove JWST}}
+\end{figure}
+
+\section{Addressing Potential Objections}
+\label{sec:objections}
+
+\noindent{\bf Why look in the mid-IR?} The mid-IR provides a unique
+view of the population of AGN. {\bf because ...?}
+
+\noindent{\bf Don't we already know which of these galaxies are ``actually''
+AGN from the optical narrow lines or other methods?} 
+
+\section{Uncertainties and Their Mitigation}
+\label{sec:difficulties}
+
+The essential sources of uncertainty in our planned measurements involve 
+the validity of our W1$-$W2 selection criterion and our ability to 
+infer 6 $\mu$m AGN luminosity when there is significant contaminating
+flux from stellar processes. If our planned measurements are secure, 
+variations among the population of mid-IR-emitting AGN can complicate
+our interpretation (e.g. systematic differences in the AGN mid-IR SED
+that cause selection effects that we do not model successfully). In
+this section we describe these difficulties and how we plan to 
+diagnose and address them.
+
+\noindent{\bf Are the AGN candidates actually AGN?} Our criterion 
+for selecting AGN from W1$-$W2 includes much bluer colors than even
+the most inclusive color cuts used by others (e.g. from \cite{assef18a}). 
+We need to consider whether there are non-AGN SEDs that can explain
+W1$-$W2 colors that are somewhat offset to the red relative to most 
+galaxies.  Low metallicity star burst components of the host galaxy
+can redden the W1$-$W2 color across our threshold; for 
+example, \cite{hainline16a} argue that the W1$-$W2 color
+for starburst dwarf galaxies can exceed even the 
+more conservative criteria of \cite{stern12a}.
+Alternatively, in galaxies with intermediate age stellar 
+populations but little recent star formation, hot 
+dust envelopes of asymptotic giant branch stars can 
+contribute to the W2 band and again lead to redder 
+W1$-$W2 \cite{villaume15a}. For our sample, with  
+stellar masses mostly $> 10^9$ $M_\odot$ and redshifts
+$z<0.15$, these issues are not particularly likely. We can 
+use the Spitzer spectra to diagnose these effects, and we 
+can use the detailed stellar population and emission line
+analysis of the  optical MaNGA spectra to characterize metallicities 
+and star formation histories.
+
+\noindent{\bf Can we measure AGN luminosities accurately?} 
+With a stringent cut on W1$-$W2, one can impute the majority of 
+the W2 luminosity to the AGN emission. However, because we are
+considering small offsets of a few tags of magnitudes from the 
+``normal'' galaxies W1$-$W2 colors, our inference of the AGN-related
+mid-IR luminosity is more uncertain. In Section \ref{sec:methods},
+we describe two methods of estimating these luminosities, and comparisons
+of these two methods will be used to assess how well we can recover
+the AGN-related mid-IR luminosity. We will also explore the 
+sensitivity of the estimates to the AGN SED model choices. 
+We will use the Spitzer spectra to compare detailed fits to
+those spectra to inferences from the broad-band photometry that we 
+have for most of our sample. A reality check will be to compare
+the 6 $\mu$m AGN-related luminosity to the [OIII] luminosity; these
+two measures should correlate well in general, and we will 
+examine outliers to assess whether they reveal failings in our
+SED fitting or are truly interesting objects (or both).
+
+\noindent{\bf Is our model for selection effects sufficiently good?}
+For the inference of Eddington ratio distributions, we need to 
+accurately understand the selection effects on detecting AGN. But 
+if the mid-IR emission SED changes systematically with Eddington ratio
+or galaxy host properties in the range we are studying, our model
+of selection effects needs to account for this. For example, the
+dust temperature distribution (which is plausibly related to Eddington 
+ratio  and gas metallicity) changes the mid-IR emission spectrum.
+Although to a limited degree we can use the Spitzer spectra to 
+explore this variation, we will have consider variations in the
+AGN SED used in the selection effect model, and evaluate the effect
+of this uncertainty on our Eddington ratio distribution conclusions.
+
+\section{Project Plan and Timeline\label{sec:plan}}
+
+The bulk of this work will be performed by a Graduate Research
+Assistant (GRA) as their PhD thesis.  The PI will mentor the GRA and 
+assist in data analysis, writing, and interpretation. An undergraduate
+researcher will also assist in data analysis and data vetting.
+
+\begin{ditemize}
+\item {\it Year 1}: 
+\begin{ditemize}
+\item Develop AGN and galaxy SED fitting to determining 6 $\mu$ AGN luminosities and
+upper limits from the WISE data.
+\item Use Spitzer spectra to refine classification criteria, and to tune SED 
+templates for accurately determining of 6 $\mu$m AGN luminosities and upper limits.
+\item Publish catalog of AGN luminosities and upper limits, and methodology paper
+on fitting AGN and galaxy SEDs.
+\end{ditemize}
+\item {\it Year 2}: 
+\begin{ditemize}
+\item Fit Eddington ratio distribution models 
+using mid-IR AGN luminosities and upper limits.
+\item Publish inferred  Eddington ratio distributions as a function of 
+host galaxy stellar mass and SFR.
+\item Publish comparison of mid-IR luminosities to other narrow-line,
+radio continuum, and X-ray luminosities where available.
+\end{ditemize}
+\end{ditemize}
+
+\section{Open Science and Data Management Plan\label{sec:data}}
+\vspace{-6pt}
+
+The data products will be WISE band luminosities and uncertainties, 
+AGN classifications, AGN 6 $\mu$m luminosities, uncertainties, and 
+upper limits, and SED fitting results for all 10,000 MaNGA galaxies. 
+We will also produce SED fitting  to the Spitzer spectra used. These 
+data will be stored as FITS files and distributed publicly.
+We will submit them to SDSS to publish as a Value Added Catalog in a 
+future data release.
+
+The software pipeline will be version controlled using {\tt git} 
+and distributed in a GitHub repository.
+It will be licensed under the 3-clause Berkeley
+Software Distribution (BSD-3) license.
+
+\clearpage
+\section{References}\label{sec:refs}
+
+\printbibliography[title=~]
+
+\clearpage
+\section{Budget Narrative}\label{sec:budget}
+
+\noindent {\bf Senior Personnel:}
+The PI is requesting 1.0 month of summer salary for each
+of the 2 years of the project. 
+The PI is responsible for the overall management of the project. The PI will 
+supervise the GRA and undergraduate and will assist in the writing,
+data analysis, and interpretation.
+
+\noindent {\bf Other Personnel:}
+Graduate Research Assistant (GRA): Funds are requested for 2 academic years
+(AY) plus 2 summers. The GRA will develop the software and perform the
+analysis described in the proposal. Undergraduate Research Assistant (UGRA): 
+Funds  are requested for undergraduate research stipends covering two years of
+effort. The UGRA will work with the GRA and assist in the data analysis 
+and data vetting.
+
+\noindent {\bf Fringe Benefits Rate:} A fringe benefits rate 
+applies to the PI salary. % 30%
+
+\noindent {\bf Capital Equipment:} Funds are requested in Year 1 for 
+dedicated computer  servers with which to perform the analysis (\$5,000 each
+for two Dell PowerEdge R7525 Servers, with 2 16-core processers with 128M 
+of cache, 4 Tb of local disk,  and 64 Gb of memory).
+
+\noindent {\bf Domestic Travel:} 
+Funds are requested for attendance at one domestic conference for 
+the GRA in each year. We assume \$1500 for a 
+4-day conference (\$200 for registration fee, \$500 for airfare, \$150/night 
+for lodging, and \$50/night per diem).
+
+\noindent {\bf Foreign Travel:} 
+Funds are requested for attendance at one foreign conference for 
+the GRA in each year. For each conference we assume \$1500 for a 
+4-day conference (\$200 for registration fee, \$500 for airfare, \$150/night 
+for lodging, and \$50/night per diem).
+
+\noindent {\bf Publications:} We anticipate two 10-page journal articles each 
+year. Based on prior experience with the AAS Journals, the typical 
+publication  cost will be \$1500 per paper in 2023 dollars.
+
+\noindent {\bf Other Direct Costs:}
+Graduate students receive tuition remission. % 37%
+
+\noindent {\bf Indirect Costs:} 
+Senior personnel salaries increase XX\% annually, while OTPS costs increase X\% per year. An indirect cost rate has been negotiated with DHHS, agreement dated October 6, 2021. The MTDC base excludes capital equipment, tuition remission, participant support costs, and subcontracts beyond the first \$25,000. {\bf TODO: NEED CORRECT DATE 
+OF AGREEMENT}
+
+\clearpage
+\section{Summary of Work Effort}\label{sec:effort}
+
+%The work will be divided as described in the table below.
+
+\begin{table}[h!]
+\centering
+\caption{Personnel and Work Effort (all project years)\label{table:effort}} 
+%\caption{Table of Work Effort\label{table:effort}} 
+\begin{tabular}{lccc}
+\\
+\hline
+& {\bf Funded Effort} & {\bf Unfunded Effort} & {\bf Total Effort} \\
+{\bf Role} & {\bf (months / year)} & {\bf (months / year)} 
+& {\bf (months / year)} \\
+\hline
+\hline
+PI & 1 & 0 & 1 \\
+Graduate Student & 12 & 0 & 12 \\
+Undergraduate Student & 2 & 0 & 2 \\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+\section{Budget Details}
+\label{sec:budget-details}
+
+\noindent {\bf Senior Personnel:}\\
+{\it excluded as requested}
+
+\noindent {\bf \it Other Personnel:}\\
+\noindent {\bf Graduate Research Assistant (GRA):}\\
+{\it excluded as requested}
+
+\noindent {\bf Fringe Benefits Rate:}\\
+{\it excluded as requested}
+
+\noindent {\bf Capital Equipment:}\\
+Year 1: \$10,000\\
+Year 2: \$0\\
+Year 3: \$0
+
+\noindent {\bf Domestic Travel:}\\
+Year 1: \$1,500\\
+Year 2: \$1,538
+
+\noindent {\bf Foreign Travel:}\\
+Year 1: \$1,500\\
+Year 2: \$1,538
+
+\noindent {\bf Publications:}\\
+Year 1: \$3,000\\
+Year 2: \$3,075
+
+\noindent {\bf Other Direct Costs (Tuition Remission):}\\
+Year 1: \$16,238\\
+Year 2: \$16,806
+
+\noindent {\bf Indirect Costs:}\\
+{\it excluded as requested}
+
+\end{document}
