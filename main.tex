@@ -105,90 +105,88 @@ galaxy host properties we can measure the best.
 %\newpage
 \section{Objectives \& Relevance: AGN and Galaxy Evolution}\label{sec:intro}
 
-We want to understand more accurately the local population of AGN because
-they are potentially a key piece of the galaxy formation puzzle.
-A central question in galaxy formation is why the most massive
-galaxies have not converted more of their available baryons into stars,
-and are not still doing so. This question has existed in some form or 
-other since at least the work of \cite{white78a}, when the first models 
-of galaxy formation
-inside of dark matter halos predicted highly efficient cooling of
-gas. As $N$-body and hydrodynamic simulations became more sophisticated 
-this problem shifted in many details but essentially remained the same: 
-the halo mass function extends nearly as a power law to high masses, whereas 
-the galaxy stellar mass function cuts off as nearly an exponential. 
-A na\"ive application of gas cooling physics to cosmological hydrodynamic
-simulations predicts that the stellar mass function should more closely follow the halo mass function \cite{benson03a, somerville15a}.
+We want to understand more accurately the local population of AGN
+because they are a potentially key piece of the galaxy formation
+puzzle. A central question in galaxy formation is why the most massive
+galaxies have not converted more of their available baryons into
+stars, and instead have ended their star formation. This question has
+existed in some form or other since at least the work of
+\cite{white78a}, when the first models of galaxy formation inside of
+dark matter halos predicted highly efficient cooling of gas. As
+$N$-body and hydrodynamic simulations became more sophisticated this
+problem shifted in many details but essentially remained the same: the
+halo mass function extends nearly as a power law to high masses,
+whereas the galaxy stellar mass function cuts off as nearly an
+exponential.  A straightforward application of gas cooling physics to
+cosmological hydrodynamic simulations predicts that the stellar mass
+function should more closely follow the halo mass function, and 
+\cite{benson03a, somerville15a}.
 
-Many solutions have been considered, and under the right set of assumptions
-several of them are tenable, but the most commonly held assumption is that
-the tremendous energy output by AGN in massive galaxies is implicated somehow
-in heating and possibly driving out the gas, preventing excessive star formation.
+Many solutions have been considered, and under the right set of
+assumptions several of them are tenable, but the most commonly held
+assumption is that the tremendous energy output by AGN in massive
+galaxies is implicated somehow in heating and possibly driving out the
+gas, preventing excessive star formation.
 
-This solution has several attractions, summarized in \cite{fabian12}. The AGN 
-are highly efficient generators
-of energy for heating and winds, which are indeed observed to be acting in a 
-number of cases. Back-of-the-envelope calculations suggest that 
-AGN-produced
-radiation pressure on dust in gas can act as negative feedback naturally limiting
-accretion onto a galaxy. The $M_{\rm BH}$--$\sigma$ relation appears to point
-to some sort of co-evolution of galaxies and their black holes. Finally, 
-hydrodynamic simulations reproduce key observables only with AGN feedback: 
-the fractions of  quenched massive galaxies found in isolation and the stellar 
-mass function  itself \cite{somerville15a, wellons22a}.
+This solution has several attractions, summarized in
+\cite{fabian12}. The AGN are highly efficient generators of energy for
+heating and winds, which are indeed observed to be acting in a number
+of cases. Back-of-the-envelope calculations suggest that AGN-produced
+radiation pressure on dust in gas can act as negative feedback
+naturally limiting accretion onto a galaxy. The $M_{\rm BH}$--$\sigma$
+relation appears to point to some sort of co-evolution of galaxies and
+their black holes. Finally, only with AGN feedback can hydrodynamic
+simulations reproduce key observables: the fractions of quenched
+massive galaxies found in isolation and the stellar mass function
+itself \cite{somerville15a, wellons22a}.
 
-This situation, however, is not ``case closed.'' The hydrodynamic simulations:
+This situation, however, is not ``case closed.'' The hydrodynamic
+simulations:
 \begin{itemize}
-\item Have their AGN feedback and other parameters tuned to fit
-certain observations; to show whether the model is actually correct, we need to 
-test additional predictions;
-\item Each have different, sometimes dramatically different, methods for applying
-AGN feedback, which yield different relationships between AGN activity and 
-galaxy properties. 
+\item Each have their AGN feedback and other parameters tuned to fit
+  certain observations; to show whether the model is actually correct,
+  we need to test additional predictions;
+\item Each have different, sometimes dramatically different, methods
+  for applying AGN feedback, which yield different relationships
+  between AGN activity and galaxy properties.
 \end{itemize}
-{\bf So which of these various theories of AGN feedback (if any) describes
-the real universe? An important prediction we intend to test is what they 
-predict about the population of AGN in galaxies today.}
+So which of these various theories of AGN feedback (if any) describes
+the real universe? An important prediction we intend to test is what
+they predict about the population of AGN in galaxies today.
 
-In detail, the simulations cannot follow black hole seeding, growth, and AGN feedback
-from first principles. These processes all are governed by physics
-on orders of magnitude smaller scales than the simulation resolution, so
-require subgrid prescriptions.
-Generally black hole growth is modeled with 
-Bondi-Hoyle-Lyttleton accretion \cite{edgar04a}, but with details varying 
-between simulations. The accretion model determines the accretion rate, 
-which is often expressed as the Eddington ratio $\lambda$ between 
-the actual rate and the Eddington rate, the maximum rate for spherical accretion 
-onto a black hole of a given mass.
+In detail, the simulations cannot follow black hole seeding, growth,
+and AGN feedback from first principles. These processes all are
+governed by physics on orders of magnitude smaller scales than the
+simulation resolution, so require subgrid prescriptions.  Generally
+black hole growth is modeled with Bondi-Hoyle-Lyttleton accretion
+\cite{edgar04a}, but with details varying between simulations. The
+accretion model determines the accretion rate, which is often
+expressed as the Eddington ratio $\lambda$ between the actual rate and
+the Eddington rate, the maximum rate for spherical accretion onto a
+black hole of a given mass.
 
-The feedback prescriptions vary more widely. There are two basic types 
-of feedback implemented: thermal feedback (i.e. inserting thermal energy
-into the gas surrounding the black halos) and kinetic feedback (inserting
-momentum into the gas surrounding the black holes). 
-Table \ref{table:feedback} summarizes how these are used. 
-Some simulations use 
-one of these types, some use the other, and some use both, with the 
-choice dependent on the Eddington ratio $\lambda$. IllustrisTNG and 
-Horizon-AGN
-use the most ``natural'' choices: the high $\lambda$
-mode uses thermal feedback, which best corresponds to the 
-observational radiative/thermal/quasar mode, and the 
-low $\lambda$ mode uses
-kinetic feedback, which best corresponds to the observational
-kinetic/jet/radio mode. 
-IllustrisTNG uses an extra dimension of parametric freedom to 
-allow the Eddington ratio division 
-between these modes to vary with black hole mass. 
-In cases like SIMBA and Illustris,
-although the basic type of feedback is unchanged, the exact implementation
-does change between low and high accretion.
+The feedback prescriptions vary more widely. There are two basic types
+of feedback implemented: thermal feedback (i.e. inserting thermal
+energy into the gas surrounding the black halos) and kinetic feedback
+(inserting momentum into the gas surrounding the black holes).  Table
+\ref{table:feedback} summarizes how these are used.  Some simulations
+use one of these types, some use the other, and some use both, with
+the choice dependent on the Eddington ratio $\lambda$. IllustrisTNG
+and Horizon-AGN use the most ``natural'' choices: the high $\lambda$
+mode uses thermal feedback, which best corresponds to the
+observational radiative/thermal/quasar mode, and the low $\lambda$
+mode uses kinetic feedback, which best corresponds to the
+observational kinetic/jet/radio mode. IllustrisTNG uses an extra
+dimension of parametric freedom to allow the Eddington ratio division
+between these modes to vary with black hole mass.  In cases like SIMBA
+and Illustris, although the basic type of feedback is unchanged, the
+exact implementation does change between low and high accretion.
 
-These various refinements of the AGN feedback methodology have 
-been designed
-to best recover galaxy properties. All of the simulations recover
-basic scaling relations and demographics of galaxies reasonably well,
-though many of these methods still struggle to fully quench the most
-massive galaxies. 
+These various refinements of the AGN feedback methodology have been
+designed to best recover galaxy properties. All of the simulations
+recover basic scaling relations and demographics of galaxies
+reasonably well, though many of these methods still struggle to fully
+quench the most massive galaxies.
 
 
 \begin{table}[t!]
@@ -209,128 +207,130 @@ NIHAO \cite{blank19a} & --- & \multicolumn{2}{c|}{Thermal} \cr
 \end{tabular}
 \end{table}
 
-The investigation of \cite{habouzit22a} shows that these predictions 
-vary dramatically in Eddington ratio distributions and their dependence
-on galaxy properties, particularly on stellar mass. For example, some
-of the Eddington ratio
-distributions increase with mass, some decrease, some are non-monotonic.
-{\bf These differences between the simulations' predictions for the 
-Eddington ratio distribution as a function of host galaxy properties
-provide a critical test of galaxy formation models.}
+The investigation of \cite{habouzit22a} shows that these predictions
+vary dramatically in Eddington ratio distributions and their
+dependence on galaxy properties, particularly on stellar mass. For
+example, some of the Eddington ratio distributions increase with mass,
+some decrease, some are non-monotonic.  These differences between the
+simulations' predictions for the Eddington ratio distribution as a
+function of host galaxy properties provide a critical test of galaxy
+formation models.
 
-Note that the work of \cite{habouzit22a} also underscores some of the difficulties
-of this prediction and its comparison to observations. 
+Note that the work of \cite{habouzit22a} also underscores some of the
+difficulties of this prediction and its comparison to observations.
 The AGN accretion and feedback models need to be converted into some
-estimate of observables. The AGN observables are X-ray luminosity, 
-broad line emission, narrow line emission, IR emission, and radio 
+estimate of observables. The AGN observables are X-ray luminosity,
+broad line emission, narrow line emission, IR emission, and radio
 emission. The X-ray and optical line emission (particularly the broad
-line emission) is further modified by dust obscuration in the 
-surroundings of the AGN, which cannot  directly be predicted from
-the simulations. {\bf These difficulties motivate the better
-observational understanding the joint distribution of these multiwavelength 
-signatures of AGN.}
+line emission) is further modified by dust obscuration in the
+surroundings of the AGN, which cannot directly be predicted from the
+simulations. These difficulties motivate the better observational
+understanding the joint distribution of these multiwavelength
+signatures of AGN.
 
-In this work, we propose to unveil a larger population of mid-infrared 
-emitting AGN than it was previously possible to reliably detect, and 
-to also set accurate upper limits on what AGN can exist. These 
-measurements will greatly enhance our understanding of the population
-of low redshift AGN and its relation to galaxy host properties. 
+Currently the statistical distribution of AGN luminosities as a
+function of galaxy properties is poorly understood, both because of a
+relative paucity of mid-IR AGN with well-measured galaxy host
+properties and because the selection effects on the existing samples
+have not been well characterized.  In this work, we propose to unveil
+a larger population of mid-infrared emitting AGN than it was
+previously possible to reliably detect, and to also set accurate upper
+limits on mid-IR AGN emission for galaxies without detected AGN. From
+these measurements we can determine the luminosity and Eddington ratio
+distributions of AGN as a function of galaxy properties.  These
+observations will establish an important new low redshift constraint
+on galaxy formation simulations.
 
 \section{Scientific Impacts: AGN host galaxies and Eddington ratio distributions}\label{sec:intro}
 
-The major goal of our group's work is to constrain the 
-distribution of AGN luminosities as probed in many ways 
-(e.g. radio, infrared, optical narrow lines, and X-rays)
-as a function of stellar mass $M_\ast$, velocity dispersion 
+The major goal of our group's work---of which this proposal is one
+part---is to constrain the distribution of AGN luminosities as probed
+in many ways (e.g. radio, infrared, optical narrow lines, and X-rays)
+as a function of stellar mass $M_\ast$, velocity dispersion
 $\sigma_v$, and star formation rate:
 \begin{equation}
 \label{eq:model}
 \Phi\left(L_{\rm radio}, L_{\rm IR}, L_{\rm OIII}, L_X | M_\ast, \sigma_v, {\rm SFR}\right),
 \end{equation}
-Surprisingly, observational constraints 
-on this distribution are not as well-understood as they could be, and 
-much of the literature on the subject is riddled with 
-difficult-to-understand selection effects.
+Surprisingly, observational constraints on this distribution are not
+as well-understood as they could be, and much of the literature on the
+subject is riddled with difficult-to-understand selection effects.
 
-The underlying problem is that AGN
-manifest in a variety of different ways, depending both
-on their intrinsic state and on the viewing angle of 
-the observer, and across all wavelengths of light. 
-To make things more complicated, their signatures are
-often in competition with stellar emission and interstellar
-gas emission. These effects lead to some
-persistent biases in observational findings that are
-not always accounted for. 
+The underlying problem is that AGN manifest in a variety of different
+ways, depending both on their intrinsic state and on the viewing angle
+of the observer, and across all wavelengths of light.  To make things
+more complicated, their signatures are often in competition with
+stellar emission and interstellar gas emission. These effects lead to
+some persistent biases in observational findings that are not always
+accounted for.
 
-In this work we propose to advance the understanding of the 
-distribution of infrared luminosities $L_{\rm IR}$. Using 
-several samples of low redshift galaxies, we intend to measure
-AGN-related emission luminosities for detected AGN {\it and} 
-upper limits for galaxies without detected AGN. We also will
-probe lower luminosity and Eddington ratio AGN than were previously
-identified in low redshift samples.
+In this work we propose to advance the understanding of the
+distribution of infrared luminosities $L_{\rm IR}$. Using several
+samples of low redshift galaxies, we intend to measure the mid-IR
+AGN-related luminosities for detected AGN {\it and} upper limits for
+galaxies without detected AGN. We aim to create a new, larger sample
+and probe lower luminosity and Eddington ratio AGN than were
+previously identified in low redshift samples.
 
-{\bf New observations of the low redshift universe present an 
-opportunity to make progress on these questions}. Specific
-motivations for revisiting this question are:
+{\bf New and archival observations of the low redshift universe
+  present an opportunity to make progress on these
+  questions}. Specific motivations for revisiting this question are:
 \begin{ditemize}
-\item
-With the Sloan Digital 
-Sky Survey's Mapping Nearby Galaxies at APO (MaNGA) program, we can measure low
-redshift galaxies exquisitely well, and separate spatially the AGN and 
-galaxy emission (\cite{bundy15a, blanton17a}). 
-Our analysis takes advantage of 10,000 potential AGN host galaxies from
-MaNGA with  high signal-to-noise ratio measurements of stellar mass, velocity
-dispersion, star formation rate, and other parameters.
-\item Existing surveys in the infrared (IR) from the Wide-field Infrared Survey Explorer 
-(WISE; \cite{wright10a}) are well matched to find mid-IR AGN in MaNGA galaxies 
-\cite{comerford20a}. But previous searches for AGN in WISE have focused on
-the most extreme AGN, whereas lower Eddington ratio AGN are readily identifiable
-but have not been studied previously.
-\item The Spitzer Space Telescope archive has mid-IR spectroscopy of galaxies in MaNGA
-and other nearby galaxies, which we can use to validate the lower Eddington ratio 
-cases. 
+\item With the Sloan Digital Sky Survey's Mapping Nearby Galaxies at
+  APO (MaNGA) program, we can measure low redshift galaxies
+  exquisitely well, and separate spatially the AGN and galaxy emission
+  (\cite{bundy15a, blanton17a}).  Our analysis takes advantage of
+  10,000 potential AGN host galaxies from MaNGA with high
+  signal-to-noise ratio measurements of stellar mass, velocity
+  dispersion, star formation rate, and other parameters.
+\item Existing surveys in the infrared (IR) from the Wide-field
+  Infrared Survey Explorer (WISE; \cite{wright10a}) are well matched
+  to find mid-IR AGN in MaNGA galaxies \cite{comerford20a}. But
+  previous searches for AGN in WISE have focused on the most extreme
+  AGN, whereas lower Eddington ratio AGN are readily identifiable but
+  have not been studied previously.
+\item The Spitzer Space Telescope archive has mid-IR spectroscopy of
+  galaxies in MaNGA and other nearby galaxies, which we can use to
+  validate the lower Eddington ratio cases.
 \end{ditemize}
 
-In this work, we will utilize these new resources to answer the 
-critical question of how AGN populate host galaxies in the low redshift
-universe. The impact of this work will be to:
+In this work, we will utilize these new resources to answer the
+critical question of how AGN populate host galaxies in the low
+redshift universe. The impact of this work will be to:
 \begin{itemize}
-    \item Expand the potential sample of mid-IR emitting AGN in the local universe 
-     by a factor of three, and extending to lower Eddington ratios and
-     luminosities, by validating a new selection technique. 
-    \item Provide observational constraints on galaxy formation theory from 
-     the Eddington ratio  distribution  of mid-IR emitting  AGN as a function of
-     stellar mass,  velocity dispersion, and star formation rate, inform galaxy
-     formation models.
-    \item Explore the relationship between different manifestations of AGN
-    (optical narrow line, X-ray, ratio, mid-IR) as a function of host galaxy 
-    properties. 
+    \item Expand the potential sample of mid-IR emitting AGN in the
+      local universe by a factor of three, and extending to lower
+      Eddington ratios and luminosities, by validating a new selection
+      technique.
+    \item Provide observational constraints on galaxy formation theory
+      from the Eddington ratio distribution of mid-IR emitting AGN as
+      a function of stellar mass, velocity dispersion, and star
+      formation rate, inform galaxy formation models.
+    \item Explore the relationship between different manifestations of
+      AGN (optical narrow line, X-ray, ratio, mid-IR) as a function of
+      host galaxy properties.
 \end{itemize}
 
-The extensive knowledge we have about these galaxies from MaNGA means we 
-can robustly validate the new selection criterion for use in larger 
-samples (with less information per galaxy) such as the SDSS Legacy 
-Survey and the DESI Bright Galaxy Survey. Doing so will massively 
-increase the power of the legacy WISE data set for the purposes of 
-selecting AGN in the local universe.
-
-The mid-IR-based bolometric luminosity distribution of AGN and its
-evolution has been measured by massive samples of AGN selected in this
-way \cite{lacy15a}. However, it is ambiguous how these AGN relate to
-their underlying host galaxies and the black holes themselves, because
-for these samples relatively little can be inferred about their host
+The well-measured MaNGA host galaxy properties present a unique
+opportunity relative to most other AGN samples.  The mid-IR-based
+bolometric luminosity distribution of AGN and its evolution has been
+measured by massive samples of AGN selected in the mid-IR
+\cite{lacy15a}. However, it is ambiguous how these AGN relate to their
+underlying host galaxies and the black holes themselves, because for
+these samples relatively little can be inferred about their host
 galaxies.  The galaxies tend to be faint, higher redshift, outshone in
 many cases by their AGN, and poorly resolved.  This lack of
 information also makes it difficult to account for systematic
 differences between low mass and high mass galaxies in selecting AGN;
 star formation in low mass galaxies may be more easily confused with
 AGN because they are lower metallicity and consequently have less PAH
-emission and hotter dust \cite{hainline16a, sajina22a}. Thus, although
-the conclusions of these studies are that at a given inferred
-bolometric luminosity, mid-IR detected AGN are more populous than
-X-ray or optical narrow line AGN, the origin of this difference is
-hard to interrogate.
+emission and hotter dust \cite{hainline16a, sajina22a}.
+
+The well-validated selection function we develop in this work may be
+applicable for use in larger samples (with less information per
+galaxy) such as the SDSS Legacy Survey and the DESI Bright Galaxy
+Survey. Doing so would massively increase the power of the legacy WISE
+data set for the purposes of selecting AGN in the local universe.
 
 \section{Methods of Proposed Work\label{sec:methods}}
 
@@ -814,6 +814,9 @@ Although to a limited degree we can use the Spitzer spectra to
 explore this variation, we will have consider variations in the
 AGN SED used in the selection effect model, and evaluate the effect
 of this uncertainty on our Eddington ratio distribution conclusions.
+
+\noindent{\bf Isn't there a lot of complicated variation among AGN we
+  are ignoring?}
 
 \section{Project Plan and Timeline\label{sec:plan}}
 
