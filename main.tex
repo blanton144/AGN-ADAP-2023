@@ -552,7 +552,9 @@ W1$-$W2 values are only 0.5--2 mag redder than the host galaxy
 sequence. Thus, a considerable fraction---more than half in some
 cases---of the W2 luminosity is from the host galaxy itself. It is
 therefore essential to account for the contamination due to the host
-galaxy.
+galaxy. For this reason previous work such as \cite{hviding22a} have
+not calculated mid-IR-based luminosities for objects like those
+we are interested in.  
 
 We can crudely estimate the mid-IR AGN luminosity in W2 by using the
 excess W1$-$W2 over the grey line in Figure \ref{fig:wise}.  If we
@@ -581,8 +583,25 @@ A preliminary example of one of these fits can be seen in Figure
 \ref{fig:fits}. This figure illustrates two points: (a) how the AGN
 dust emission reddens the W1$-$W2 color, and (b) that the AGN can be
 clearly detectable while being a minority contributor to the W2
-flux. We can use the AGN component of the AGN evaluated at 6 $\mu$m
-fit as an estimate of the mid-IR AGN luminosity.
+flux.
+
+We will characterize the luminosity of the AGN component at several
+wavelengths, concentrating primarily on 6 $\mu$m and 15 $\mu$m, 
+commonly used reference points. We will use our error analysis (see 
+below) to determine which wavelengths are most strongly constrained
+in the presence of modeling uncertainty and thus most suitable for 
+bolometric luminosity estimates. 
+
+For the MaNGA sample of bright galaxies, we anticipate that the 
+15 $\mu$m luminosity will be much better measured and less 
+contaminated by the host galaxy.
+But for larger, deeper samples that are based on  WISE 
+\cite{assef18a, hviding22a}, we anticipate that W3 and W4 
+will not be well enough measured for good constraints on 15 $\mu$m.
+With this in mind, we will determine the relationship 
+between the 6 $\mu$m and 15 $\mu$m AGN luminosities within MaNGA,
+so that that relationship can be used to bootstrap 6 $\mu$m 
+measurements made with larger samples.
 
 \begin{figure}[t!]
 \includegraphics[width=0.98\textwidth]{spec-grid.png}
@@ -612,12 +631,13 @@ help determine the upper limit. First, we will determine a ``typical''
 AGN SED from the fits to galaxies with mid-IR AGN; we will also
 determine this typical AGN SED as a function of sSFR to test for
 systematic variations. Second, for each galaxy without an identified
-AGN we can determine how much typical AGN SED we need to add to its
-best fit SED to cross our color threshold. The combined AGN luminosity
-from both components evaluated at 6 $\mu$m is our estimate of the
-upper limit.
+AGN we can determine how much typical AGN SED can be added to its
+best fit SED before it crosses our color threshold for AGN. The combined
+AGN luminosity from both components evaluated at 6 $\mu$m is our 
+estimate of the upper limit.
 
-There are inherent uncertainties in this process. We will explore the
+There are inherent uncertainties in the SED fitting process related
+to our understanding of the SED models. We will explore the
 effects of varying the AGN and stellar population SED grids on our
 results to test their robustness.  As described in the next section,
 we will further test this fitting procedure with the detailed spectra
@@ -635,8 +655,8 @@ population of AGN unveiled with our new criterion, both in the AGN
 identification and in the measurement of luminosity. To address these
 uncertainties, we will make use of around 2,000 Spitzer Space
 Telescope spectra in the mid-IR compiled by \cite{lambrides}. Of this
-sample, 40 are in our MaNGA sample and can provide direct tests.
-Figure \ref{fig} shows several examples of these spectra.  Our
+sample, 30 are in our MaNGA sample and can provide direct tests.
+Figure \ref{fig:spitzer} shows several examples of these spectra.  Our
 technique will be to use traditional signatures and the shape of the
 spectrum to inform our interpretation of the WISE photometry.
 
