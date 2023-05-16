@@ -655,48 +655,66 @@ population of AGN unveiled with our new criterion, both in the AGN
 identification and in the measurement of luminosity. To address these
 uncertainties, we will make use of around 2,000 Spitzer Space
 Telescope spectra in the mid-IR compiled by \cite{lambrides}. Of this
-sample, 30 are in our MaNGA sample and can provide direct tests.
-Figure \ref{fig:spitzer} shows several examples of these spectra.  Our
-technique will be to use traditional signatures and the shape of the
-spectrum to inform our interpretation of the WISE photometry.
+sample, 560 are in the NASA Sloan Atlas (NSA) and so are low redshift 
+galaxies with high quality GALEX, optical, and WISE imaging 
+available. Of the full sample, 30 are in the MaNGA sample; these
+spectra are shown in  Figure \ref{fig:spitzer}.  
+{\bf For the Spitzer spectra of NSA and MaNGA galaxies we will analyze 
+the AGN signatures  and spectral shape to test our new criterion and to
+assess and refine our SED modeling of the WISE photometry.}
 
-We will examine the relationship between W1$-$W2 and traditional
-signatures such as the PAH 6.2 $\mu$m equivalent width. The PAH
-measurement is strong if the galaxy is dominated by star formation,
+\begin{figure}[t!]
+\includegraphics[width=0.92\textwidth]{all-spitzer.png}
+    \caption{
+\label{fig:spitzer} \small Spitzer spectra for MaNGA galaxies
+from \cite{lambrides}. They are colored by W1$-$W2 (increasing
+in color from blue to red), and they are offset by arbitrary
+amounts for clarity. For various spectra, one can see 
+the silicon absorption  feature, PAH features, [O IV] 26 $\mu$m, 
+and some high ionization lines such as [Ne V].
+}
+\end{figure}
+
+The spectra provide mid-IR indicators that can be used to 
+test our new criterion.
+The PAH 6.2 $\mu$m equivalent and the silicon absorption depth
+have been measured for these spectra by \cite{lambrides}. 
+The PAH measurement is strong if the galaxy is dominated by star formation,
 but weak if the emission is dominated by the AGN \cite{sajina22a}.
-For the full sample of 2,000 spectra from \cite{lambrides}, we will
-use strong PAH signatures to estimate the outlier rate as a function
-of W1$-$W2.  The 40 galaxies with MaNGA data and Spitzer spectra will
-provide less statistically powerful but more detailed information. In
-these cases, we can use MaNGA-based information on the gas metallicity
-to control for the PAH strength dependence on metallicity.
+The silicon absorption is typically a signature of an AGN.
+We will also measure other signatures where possible, which include
+[O IV] 26 $\mu$m, [Ne V] 14.3 $\mu$m, [S IV] 10.5 $\mu$m, and other 
+emission line fluxes.
+We will examine the relationship between W1$-$W2, these signatures,
+and (for the 30 galaxies for which they are available) the MaNGA based 
+estimates of stellar metallicity, star formation
+rate, and stellar mass. From these relationships we will attempt to
+determine the reliability of W1$-$W2 as an indicator of the presence
+of an AGN, paying particular attention to whether candidate AGN 
+introduced by our new criterion are convincingly mid-IR AGN based
+on all of these indicators.
 
-{\bf also talk about silicon feature}
-
-We will assess and refine our SED fitting with the Spitzer spectra as
-well.  In the case of the 40 galaxies with MaNGA and Spitzer data, we
-can directly compare the SED fitting results for the broad-band
-photometry to the detailed Spitzer spectra and assess its
-validity. For the other Spitzer spectra, we will fit using our models
-to synthesized photometry and then assess the results similarly. We
-will use the differences in broad-band spectral shape and in the
-prominence of the PAH lines to refine our choice of FSPS and AGN
-template parameters to better reflect the more detailed Spitzer
-spectra.
-
-For a small number of the Spitzer spectra, we can also examine other
-AGN indicators. The spectra show high ionization lines, in particular
-[Ne V] 14.3 $\mu$m, [S IV] 10.5 $\mu$m, [O IV] 26 $\mu$m, which we
-expect to be good tracers of AGN activity and can be used to validate
-the existence of a strong AGN.
+The spectra allow us to assess and refine our SED fitting with 
+the Spitzer spectra as well. We can directly compare the SED fitting 
+results for the broad-band photometry to the detailed Spitzer spectra 
+and assess its validity. We will apply our SED fitting to the 
+NSA galaxies. Then, using both the NSA and the MaNGA galaxies, we
+will use the differences in broad-band spectral 
+shape and in the prominence of the PAH lines to refine our choice of 
+FSPS and AGN template parameters to better reflect the more detailed 
+Spitzer spectra.  For the subset of spectra that are in MaNGA we 
+can determine the extent that physical properties such as stellar
+mass and star formation rate affect the SED modeling and can be 
+used to improve its agreement with the Spitzer data.
 
 \subsection{Fitting Eddington Ratio Distributions}
 \label{sec:erd}
 
-The primary observational results we seek are the mid-IR luminosity
+The work described above will position us to achieve the 
+main goals of the proposal: {\bf to measure mid-IR luminosity
 and Eddington ratio distributions as a function of galaxy properties,
 in particular stellar mass ($M_\ast$), velocity dispersion ($\sigma$),
-and specific star formation rate (sSFR).
+and specific star formation rate (sSFR).}
 
 We will calculate the mid-IR luminosity distributions using a standard
 maximum likelihood technique utilizing the mid-IR luminosities and
@@ -708,16 +726,27 @@ quantity:
 where $X$ is $M_\ast$, $\sigma$, or sSFR. The advantage of the MaNGA
 sample is that these quantities are known extremely reliably. We will
 use at least two choices of parametrization---a broken power law and a
-Schechter function. Given the limitations in sample size, we expect
+Schechter function, each of which can be characterized by a set of 
+parameters $\vec{\theta}$. Given the limitations in sample size, we expect
 that we will not be able to determine the full joint dependence on
 multiple properties. Instead, for each choice of $X$ we will search
 for residual dependence on the other two properties. Within any given
 model, we will maximize the log-likelihood, which can be expressed as:
 \begin{equation}
-\ln \mathcal{L} \propto 
+\ln \mathcal{L} = \sum_i \ln p_i\left(L_{{\rm IR},\,i}  | X\right),
 \end{equation}
-which utilizes both the mid-IR AGN detections and the upper
-limits. The upper limits are critical for this study since they allow
+where for detected AGN:
+\begin{equation}
+p_i = \Phi\left(L_{{\rm IR}, i}; \vec{\theta} \right)
+\end{equation}
+and for non-detected AGN:
+\begin{equation}
+p_i = \int_0^{L_{{\rm IR, lim},\,i}} {\rm d}L \Phi\left(L; \vec{\theta}\right),
+\end{equation}
+where $\Phi(L)$ is a model for the luminosity function with
+parameters $\vec{\theta}$, and $L_{{\rm IR, lim},\,i}$ is the upper limit 
+on the AGN mid-IR luminosity for each galaxy $i$.
+The upper limits are critical for this study since they allow
 us to utilize the many non-detections, which can be quite informative
 about the fraction of galaxies with low luminosity AGN when used
 properly.
@@ -728,9 +757,9 @@ luminosity). In our context, the absolute level of the Eddington ratio
 is less important than that we provide some appropriate scaling of the
 AGN emission as a function of black hole mass.  For the bolometric
 luminosity we will use the nonlinear relation of \cite{stern15a}
-between mid-IR luminosity and X-ray luminosity, and assume a factor of
-20 between X-ray luminosity and bolometric luminosity. Although this
-approach is susceptible to variations in the bolometric-to-mid-IR
+between mid-IR 6 $\mu$m luminosity and X-ray luminosity, and assume a 
+factor of 20 between X-ray luminosity and bolometric luminosity. Although 
+this approach is susceptible to variations in the bolometric-to-mid-IR
 luminosity ratio, we note that the sample we develop will be well
 matched to future public eROSITA catalogs, in order to help better
 calibrate this relationship.
@@ -766,28 +795,30 @@ compare to the WISE-based estimators.
 
 AGN manifest in a number of different ways. The work proposed here is
 part of a larger effort to study local AGN in optical narrow lines,
-mid-IR, X-rays, and the radio. In each manifestation we are seeking to
-carefully characterize the selection effects in selection, so that we
-can meaningfully study the relationships between these different
-manifestations and the dependence on galaxy properties. Previous
-efforts in this area have shown that searching for AGN in different
-manifestations yield overlapping but different samples of AGN;
-however, without meaningful upper limits on detections, the
-significance of the sample differences cannot be
-interpreted. Meanwhile, for AGN that are not far more luminous than
-their host galaxy, these upper limits depend (in some cases strongly!)
-on the host galaxy properties.  For these reasons, our comparison with
-narrow line, X-ray, and radio manifestations of AGN will need to take
-into account these upper limits.
+mid-IR, X-rays, and the radio, accounting for the different selection 
+effects in each one. {\bf To support our understanding of the 
+mid-IR luminosities will characterize the
+relationship between the mid-IR luminosities and optical narrow line 
+[O III] luminosities accounting for upper limits in each case}.
 
-Figure \ref{fig:bpt} investigates the signatures of optical narrow
-line emission for these candidates; in summary, although the mid-IR
-AGN preferentially present as narrow line Seyferts, about half do not,
-and vice-versa. We need to determine whether the missing cases are due
-to selection effects in the mid-IR or in the narrow line
+Previous efforts in this area have shown that searching for AGN in 
+different manifestations yield overlapping but different samples of AGN
+\cite{hviding22a}. Figure \ref{fig:bpt} investigates the signatures of 
+optical narrow line emission for these candidates; in summary, although 
+the mid-IR AGN preferentially present as narrow line Seyferts, about 
+half do not, and vice-versa. We need to determine whether the missing cases 
+are due to selection effects in the mid-IR or in the narrow line
 classifications. Our analysis here will determine the former; we will
 make use of separately-funded efforts to determine the narrow line
 selection limits. 
+
+However, without meaningful upper limits on detections
+in both manifestations, the significance of the sample differences cannot be
+interpreted. Meanwhile, for AGN that are not far more luminous than
+their host galaxy, these upper limits depend (in some cases strongly!)
+on the host galaxy properties.  For these reasons, our comparison with
+narrow line AGN will need to take into account these upper limits.
+
 
 We will compare the mid-IR luminosities to [O III] luminosity
 measurements from MaNGA. This relationship has not been explored in a
