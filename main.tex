@@ -390,13 +390,15 @@ of AGN in the local universe, we use the following methods;
 \subsection{The MaNGA NASA Sloan Atlas}
 \label{sec:mnsa}
 
-MaNGA comprises the best understood sample of 10,000 galaxies in the universe, 
-with comprehensive integral field spectroscopy in the  optical, constraining 
-galaxies' central velocity dispersion, star formation history, ionized gas properties,
-and dynamics. WISE photometry detects every MaNGA galaxy and provides important 
-information about their AGN and star formation activity that we will make use of
-here. We will make use here of a combination of GALEX, MaNGA, and WISE 
-data created in previous research, called the MaNGA NASA Sloan Atlas (MNSA).
+MaNGA comprises the best understood sample of 10,000 galaxies in the
+universe, with comprehensive integral field spectroscopy in the
+optical, constraining galaxies' central velocity dispersion, star
+formation history, ionized gas properties, and dynamics. WISE
+photometry detects every MaNGA galaxy and provides important
+information about their AGN and star formation activity that we will
+make use of here. We will make use here of a combination of GALEX,
+MaNGA, and WISE data created in previous research, called the MaNGA
+NASA Sloan Atlas (MNSA).
 
 The MaNGA measurements provide an immense amount of ancillary
 information, unparalleled in any other sample of its size, and we do
@@ -532,113 +534,81 @@ additional information.
 \subsection{Measuring mid-IR AGN luminosities and upper limits}
 \label{sec:measurements}
 
-For every galaxy in this sample we seek to produce either:
-(a) a measured mid-IR AGN luminosity or (b) an upper limit on the
-mid-IR AGN  luminosity, if an AGN is not detected. For every 
-identified AGN we will infer a 6 $\mu$m luminosity using an SED-based
-analysis of the photometry. For every galaxy without an
-identified AGN, we will determine using a typical AGN SED what 
-6 $\mu$m luminosity it would have to have had in order to be 
-classified as an AGN, placing thereby an upper
-limit on that luminosity. {\bf Previous work with mid-IR 
-AGN from WISE has neither accounted for the host galaxy
-contribution in the determination mid-IR luminosity or 
-in calculations of upper limits in mid-IR luminosity.}
+For every galaxy in this sample we seek to produce either: (a) a
+measured mid-IR AGN luminosity or (b) an upper limit on the mid-IR AGN
+luminosity, if an AGN is not detected. For every identified AGN we
+will infer a 6 $\mu$m luminosity using an SED-based analysis of the
+photometry. For every galaxy without an identified AGN, we will
+determine using a typical AGN SED what 6 $\mu$m luminosity it would
+have to have had in order to be classified as an AGN, placing thereby
+an upper limit on that luminosity. {\bf Previous work with mid-IR AGN
+  from WISE has neither accounted for the host galaxy contribution in
+  the determination mid-IR luminosity or in calculations of upper
+  limits in mid-IR luminosity; we do so here with the use of SED
+  fitting techniques}.
 
-Even for the extreme mid-IR AGN selected by \cite{assef18a}, 
-their W1$-$W2 values are only 0.5--2 mag redder than the host 
-galaxy sequence. Thus,  a considerable fraction---more than 
-half in some cases---of the  W2 luminosity is from the host 
-galaxy itself. It is therefore essential to account for the
-contamination due to the host galaxy.
+Even for the extreme mid-IR AGN selected by \cite{assef18a}, their
+W1$-$W2 values are only 0.5--2 mag redder than the host galaxy
+sequence. Thus, a considerable fraction---more than half in some
+cases---of the W2 luminosity is from the host galaxy itself. It is
+therefore essential to account for the contamination due to the host
+galaxy.
 
-We can crudely estimate the mid-IR AGN luminosity in W2 by 
-using the excess W1$-$W2 over the grey line in Figure \ref{fig:wise}.
-If we assume the entire excess is due to the AGN contribution to
-W2, and that it makes no contribution to W1, we can infer
-the AGN contribution to W2. We then can convert that W2 flux
-to a 6 $\mu$m luminosity using the AGN SED from \cite{richards06a} 
-or from one of the typical AGN SEDs that we fit below from 
-\cite{nenkova08a}. 
-Similarly, we can calculate a crude estimate of an upper limit 
-on the AGN luminosity by using the difference between the grey 
-line and our color criterion for the sSFR of any particular galaxy;
-this will tell us how much AGN luminosity would be necessary to 
-classify that galaxy as an AGN.
-These crude estimates have the virtues of simplicity
-and model independence.
+We can crudely estimate the mid-IR AGN luminosity in W2 by using the
+excess W1$-$W2 over the grey line in Figure \ref{fig:wise}.  If we
+assume the entire excess is due to the AGN contribution to W2, and
+that it makes no contribution to W1, we can infer the AGN contribution
+to W2. We then can convert that W2 flux to a 6 $\mu$m luminosity using
+the AGN SED from \cite{richards06a} or from one of the typical AGN
+SEDs that we fit below from \cite{nenkova08a}.  Similarly, we can
+calculate a crude estimate of an upper limit on the AGN luminosity by
+using the difference between the grey line and our color criterion for
+the sSFR of any particular galaxy; this will tell us how much AGN
+luminosity would be necessary to classify that galaxy as an AGN.
+These crude estimates have the virtues of simplicity and model
+independence.
 
-But more precise estimates of the AGN mid-IR luminosity and 
-upper limits can be made using SED fits including AGN and 
-star formation components. We will use a non-negative fit to 
-a large set of stellar population templates from the Flexible Stellar
-Population Synthesis models (FSPS; \cite{conroy09a}), along with 
-a set of AGN templates from the ``Clumpy'' models \cite{nenkova08a}.
-These fits are extremely fast, taking a fraction of a second 
-per galaxy.
+But more precise estimates of the AGN mid-IR luminosity and upper
+limits can be made using SED fits including AGN and star formation
+components. We will use a non-negative fit to a large set of stellar
+population templates from the Flexible Stellar Population Synthesis
+models (FSPS; \cite{conroy09a}), along with a set of AGN templates
+from the ``Clumpy'' models \cite{nenkova08a}.  Performed with a Python
+version of the {\tt kcorrect} software \cite{blanton07a}, these fits
+are extremely fast, taking a fraction of a second per galaxy.
 
 A preliminary example of one of these fits can be seen in Figure
-\ref{fig:fits}. This figure illustrates two points: (a) 
-how the AGN dust emission reddens the W1$-$W2 color, and (b)
-that the AGN can be clearly detectable while being a minority
-contributor to the W2 flux. We can use the AGN component of the
-AGN fit as an estimate of the mid-IR AGN luminosity.
+\ref{fig:fits}. This figure illustrates two points: (a) how the AGN
+dust emission reddens the W1$-$W2 color, and (b) that the AGN can be
+clearly detectable while being a minority contributor to the W2
+flux. We can use the AGN component of the AGN evaluated at 6 $\mu$m
+fit as an estimate of the mid-IR AGN luminosity.
 
-The use of the SED fitting techniques makes it straightforward
-to calculate uncertainties and upper limits. 
-We will perform a large set
-of Monte Carlos on the data set, adding random errors to the 
-fluxes based on the measurement uncertainties. The resulting
-distribution of Monte Carlo AGN luminosities provides an 
-estimate of the errors, that accounts for the statistical 
-errors and for the wide variation possible in the AGN and 
-stellar population models. For identified AGN, these results
-determine the luminosity errors. 
+The use of the SED fitting techniques makes it straightforward to
+calculate uncertainties and upper limits. We will perform a large set
+of Monte Carlos on the data set, adding random errors to the fluxes
+based on the measurement uncertainties. The resulting distribution of
+Monte Carlo AGN luminosities provides an estimate of the errors, that
+accounts for the statistical errors and for the wide variation
+possible in the AGN and stellar population models. For identified AGN,
+these results determine the luminosity errors.
 
-For galaxies without identified AGN, we can use the best
-fit SED to help determine the upper limit. First, we will 
-determine a ``typical'' AGN from the fits to galaxies with
-mid-IR AGN; we will also determine this as a function of 
-sSFR to test for systematic variations. Second, for each 
-galaxy without an identified AGN we can determine how 
-much ``typical'' AGN we need to add to its best fit
-SED to cross our 
-color threshold, and the .
+For galaxies without identified AGN, we can use the best fit SED to
+help determine the upper limit. First, we will determine a ``typical''
+AGN SED from the fits to galaxies with mid-IR AGN; we will also
+determine this typical AGN SED as a function of sSFR to test for
+systematic variations. Second, for each galaxy without an identified
+AGN we can determine how much typical AGN SED we need to add to its
+best fit SED to cross our color threshold. The combined AGN luminosity
+from both components evaluated at 6 $\mu$m is our estimate of the
+upper limit.
 
-
-
-
-Figure \ref{fig:fits} shows examples of such fits applied using the
-{\tt kcorrect} Python package \cite{blanton07a}. In this case, we use  
-a 
-templates from the ``Clumpy'' models \cite{nenkova08a}. However, this set
-of templates is too broad and does not incorporate the strong regularity 
-found in the observed galaxy population. 
-
-We will use dimensionality reduction techniques such as non-negative 
-matrix factorization to restrict the model space, retaining the ability
-to accurate replicate the mid-IR WISE colors and utilizing our knowledge
-of the star formation history from MaNGA.
-As we will discuss further in the next subsection, we will use Spitzer spectra 
-to constrain these SEDs as well.
-
-For each of the galaxies without a detected AGN, we need to derive an
-upper limit to the AGN luminosity. These upper limits are essential to 
-the statistical understanding of the population. They are necessary in 
-order to derive an accurate luminosity function or Eddington ratio
-distribution, and to explore the mid-IR AGN emission and other manifestations 
-of AGN in the presence of selection effects.
-
-In these cases, we will use pure FSPS fits without AGN to each galaxy, and
-test how luminous an AGN SED component can be added without exceeding the 
-color criterion we have adopted. The corresponding 6 $\mu$m luminosity 
-will be our adopted upper limit.
-
-There are substantial uncertainties in the determinations of luminosities
-and upper limits that we will discuss more fully in  Section 
-\ref{sec:difficulties}. In brief, we will test the sensitivity 
-of these calculations to the choices of underlying SED models by adopting 
-a suite of different choices. 
+There are inherent uncertainties in this process. We will explore the
+effects of varying the AGN and stellar population SED grids on our
+results to test their robustness.  As described in the next section,
+we will further test this fitting procedure with the detailed spectra
+from Spitzer. The testing procedure may lead to adjustments in the
+underlying grid of SED models we use for the full set of galaxies.
 
 %Eddington ratio about 0.6 dex lower than the standard AGN as selected
 %by \cite{assef18a}.
@@ -646,16 +616,15 @@ a suite of different choices.
 \subsection{Analysis of Spitzer Space Telescope Spectra}
 \label{sec:spitzer}
 
-With only broad-band WISE fluxes, there will be uncertainties in 
-the population of AGN unveiled with our new criterion, both in the 
-AGN identification and in the measurement of luminosity. To address 
-these uncertainties, we will make use of around 2,000 Spitzer Space Telescope
-spectra in the mid-IR compiled by \cite{lambrides}. Of this sample, 40 
-are in our MaNGA sample and can provide direct tests. 
-Figure \ref{fig} shows several examples of these spectra.
-Our technique will
-be to use traditional signatures and the shape of the spectrum to 
-inform our interpretation of the WISE photometry.
+With only broad-band WISE fluxes, there will be uncertainties in the
+population of AGN unveiled with our new criterion, both in the AGN
+identification and in the measurement of luminosity. To address these
+uncertainties, we will make use of around 2,000 Spitzer Space
+Telescope spectra in the mid-IR compiled by \cite{lambrides}. Of this
+sample, 40 are in our MaNGA sample and can provide direct tests.
+Figure \ref{fig} shows several examples of these spectra.  Our
+technique will be to use traditional signatures and the shape of the
+spectrum to inform our interpretation of the WISE photometry.
 
 We will examine the relationship between W1$-$W2 and traditional
 signatures such as the PAH 6.2 $\mu$m equivalent width. The PAH
@@ -977,16 +946,15 @@ responsible for the overall management of the project. The PI will
 supervise the GRA and undergraduate and will assist in the writing,
 data analysis, and interpretation.
 
-\noindent {\bf Other Personnel:}
-Graduate Research Assistant (GRA): Funds are requested for 2 academic years
-(AY) plus 2 summers. The GRA will develop the software and perform the
-analysis described in the proposal. Undergraduate Research Assistant (UGRA): 
-Funds  are requested for undergraduate research stipends covering two years of
-effort. The UGRA will work with the GRA and assist in the data analysis 
-and data vetting.
+\noindent {\bf Other Personnel:} Graduate Research Assistant (GRA):
+Funds are requested for 2 academic years (AY) plus 2 summers. The GRA
+will develop the software and perform the analysis described in the
+proposal. Undergraduate Research Assistant (UGRA): Funds are requested
+for an hourly research position. The UGRA will work with the GRA and
+assist in the data analysis and data vetting.
 
 \noindent {\bf Fringe Benefits Rate:} A fringe benefits rate 
-applies to the PI salary. % 31%
+applies to the PI salary and the undergraduate student salary. % 31%
 
 \noindent {\bf Capital Equipment:} Funds are requested in Year 1 for 
 dedicated computer  servers with which to perform the analysis (\$5,000 each
@@ -1064,8 +1032,7 @@ Undergraduate Student & 2 & 0 & 2 \\
 
 \noindent {\bf Capital Equipment:}\\
 Year 1: \$10,000\\
-Year 2: \$0\\
-Year 3: \$0
+Year 2: \$0
 
 \noindent {\bf Domestic Travel:}\\
 Year 1: \$1,500\\
