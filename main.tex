@@ -44,6 +44,7 @@
 
 % TODO
 % - How much lower luminosity?
+% - How many candidates exactly
 % - Better Spitzer spectra figure
 
 \newpage
@@ -58,7 +59,7 @@ formation of stars.  For this reason, the Cosmic Origins program has a
 focus on the history and evolution of supermassive black holes.  For
 similar reasons, the National Academy of Sciences' Decadal Survey
 report ``Pathways to Discovery in Astronomy and Astrophysics for the
-2020s'' describes the study the growth of the supermassive black hole
+2020s'' describes the study of the growth of the supermassive black hole
 population as essential to its priority science area, ``Unveiling the
 Hidden Drivers of Galaxy Growth.''
 
@@ -103,7 +104,7 @@ structure (the ``torus'') in AGN.
     low redshift baseline for the distribution of AGN luminosities as
     a function of host galaxy properties that galaxy formation
     theorists can use as a new observational constraint. In this
-    section we explain the theoretical context that makes this work
+    section, we explain the theoretical context that makes this work
     significant and important.}}
 
 A central question in galaxy formation is why the most massive
@@ -314,10 +315,11 @@ To advance our understanding of AGN in the local universe, we use the
 following methods:
 \begin{ditemize}
     \item We use a low redshift sample of galaxies from MaNGA with 
-    jointly analyzed WISE data (the MaNGA NASA Sloan Atlas or MNSA)
-    (Section \ref{sec:mnsa}).
+    jointly analyzed WISE data (the MaNGA NASA Sloan Atlas, or MNSA;
+    Section \ref{sec:mnsa}).
     \item We use a newly developed, more sensitive criterion to 
-    identify mid-IR AGN (Section \ref{sec:criterion}).
+    identify mid-IR AGN, increasing existing samples by a factor of
+    three (Section \ref{sec:criterion}).
     \item We use SED modeling methods to derive the mid-IR AGN
       luminosities and upper limits for all 10,000 MaNGA galaxies
       (Section \ref{sec:measurements}).
@@ -339,11 +341,10 @@ universe, with comprehensive integral field spectroscopy in the
 optical, constraining galaxies' central velocity dispersion, star
 formation history, ionized gas properties, and dynamics. WISE
 photometry detects every MaNGA galaxy and provides important
-information about their AGN and star formation activity that we will
-make use of here. {\bf We will make use here of a previously created
-  joint photometric analysis of GALEX, DESI Legacy Imaging Surveys,
-  MaNGA, and WISE data obtained in private communication, which we
-  call here the MaNGA NASA Sloan Atlas (MNSA)}.
+information about their AGN and star formation activity.  {\bf We will
+  use a joint photometric analysis of GALEX, DESI Legacy Imaging
+  Surveys, MaNGA, and WISE data obtained in private communication,
+  which we call here the MaNGA NASA Sloan Atlas (MNSA)}.
 
 MaNGA provides an immense amount of ancillary information,
 unparalleled in any other sample of its size. We need not perform any
@@ -379,13 +380,19 @@ galaxy properties are biased at best but often inaccessible
 entirely. Only by starting with a galaxy sample can we constrain the
 dependence of AGN properties on galaxy properties in an unbiased way.
 
+To supplement the MaNGA data, we use a set of images and consistent
+photometry incorporating GALEX far- and near-UV bands
+\cite{martin05a}, the DESI Legacy Imaging Surveys $g$, $r$, and $z$
+bands \cite{dey19a}, and the WISE W1, W2, W2, and W4 bands
+\cite{wright10a}.
+
 \subsection{Identifying AGN in WISE: A New Criterion}
 \label{sec:criterion}
 
-{\bf We propose to test and use a more inclusive AGN selection
-  criterion using WISE photometry and MaNGA star formation rates that
-  promises to provide around a factor of three more AGN than the
-  previous standard criteria.}
+{\bf We propose to develop a more inclusive AGN selection criterion
+  using WISE photometry and MaNGA star formation rates that promises
+  to provide around a factor of three more AGN than the previous
+  standard criteria.}
 
 AGN often exhibit mid-IR emission from dust in the periphery of the
 accretion disk heated to close to sublimation temperatures,
@@ -396,7 +403,7 @@ roughly uniform W1$-$W2 color (those bands are in the Rayleigh-Jeans
 regime).  Meanwhile, dust heated by star formation does not get to
 high enough temperature to contribute much to W2, nor do most PAH
 lines.  The W1$-$W2 color of a host galaxy is closely related to its
-star formation rate (or from its W2$-$W3 color \cite{hviding22a}).
+star formation rate (or to its W2$-$W3 color \cite{hviding22a}).
 Therefore, a W1$-$W2 color redder than the expectation given the star
 formation rate indicates the presence of hot dust from an AGN.
 
@@ -417,17 +424,17 @@ sequence are likely to be AGN.
 \label{fig:wise} \small Mid-IR AGN detection. 
 The left panel shows W1$-$W2 colors (AB) of MaNGA galaxies vs star
 formation rate determined from the optical stellar population fits.
-The dotted line is the commonly used AGN criteria from
-\cite{assef18a}. The grey line is designed to follow the dependence of
-W1$-$W2 on SFR, and (with care taken to validate it) will provide a
-more complete census of mid-IR AGN from MaNGA. The right panel shows
-two example AGN selected in the mid-IR, with one that only passes the
-proposed new criterion and one that passes both criteria. The top
-shows the optical broadband color image; the middle shows the optical
-broadband light as grey, with [OIII] emission overlaid as green and
-H$\alpha$ emission overlaid as red; the bottom shows the WISE mid-IR
-color image. The newly included galaxy is an AGN based on its [OIII]
-emission and morphology.}
+The grey line is designed to follow the dependence of W1$-$W2 on SFR.
+The straight dotted line is the commonly used AGN criteria from
+\cite{assef18a}. The line below it is our proposed new criterion.  to
+provide a more complete census of mid-IR AGN from MaNGA. The right
+panel shows two example AGN selected in the mid-IR, with one that only
+passes the proposed new criterion and one that passes both
+criteria. The top shows the optical broadband color image; the middle
+shows the optical broadband light as grey, with [OIII] emission
+overlaid as green and H$\alpha$ emission overlaid as red; the bottom
+shows the WISE mid-IR color image. The newly included galaxy is an AGN
+based on its [OIII] emission and morphology.}
 \end{figure}
 
 The upper dotted line shows the typical criterion used to select AGN
@@ -451,11 +458,13 @@ distribution, shown as the lower dotted line. This new criterion
 increases the mid-IR emitting AGN candidate sample by a factor of
 three.
 
-We will further refine this selection using other MaNGA-based
-measurements such as stellar metallicity, stellar mass, velocity
-dispersion, or Balmer decrement, and the W2$-$W3 color
-\cite{hviding22a}, to help predict the host galaxy W1$-$W2
-distribution.  
+The exact W1$-$W2 of the host galaxy is sensitive to aspects of the
+star formation history other than the most recent star formation. If
+we can use other properties of the galaxy to better predict W1$-$W2
+for the host galaxy, it will allow us to more accurately identify
+outliers.  For this purpose we will test MaNGA-based measurements such
+as stellar metallicity, stellar mass, velocity dispersion, Balmer
+decrement and others, as well as the W2$-$W3 color \cite{hviding22a}.
 
 \subsection{Measuring mid-IR AGN luminosities and upper limits}
 \label{sec:measurements}
@@ -464,16 +473,19 @@ distribution.
   determine either: (a) measured mid-IR AGN luminosities at 6 $\mu$m
   and 15 $\mu$m, if an AGN is identified, or (b) an upper limit on the
   mid-IR AGN luminosity, if an AGN is not identified.  These upper
-  limits have never previously been determined.}
+  limits have never previously been determined for a mid-IR AGN
+  search.}
 
-A considerable fraction---more than half in some cases---of the W2
-luminosity measured by WISE for any AGN is from the host galaxy
+Measuring the mid-IR AGN luminosities and upper limits requires care
+because a considerable fraction---more than half in some cases---of
+the W2 luminosity measured by WISE for any AGN is from the host galaxy
 itself.  This holds even for the extreme mid-IR AGN selected by
 \cite{assef18a}; their W1$-$W2 values are only 0.5--2 mag redder than
-the host galaxy sequence.  It is essential to account for the
-contamination due to the host galaxy. For this reason many previous
-studies such as \cite{hviding22a} have not calculated mid-IR-based
-luminosities for objects like those in our sample.
+the host galaxy sequence.  Therefore, it is essential to account for
+the contamination due to the host galaxy. Because of the complications
+involved in doing so, previous studies such as \cite{hviding22a}
+have not calculated mid-IR-based luminosities for objects like those
+in our sample.
 
 % We can crudely estimate the mid-IR AGN luminosity in W2 by using the
 % excess W1$-$W2 over the grey line in Figure \ref{fig:wise}.  If we
@@ -493,13 +505,14 @@ We do so here using SED fits including both AGN and star formation
 components. We will use a non-negative fit to a large set of simple
 stellar population (SSP) templates from the Flexible Stellar
 Population Synthesis models (FSPS; \cite{conroy09a}), along with a
-broad set of AGN templates from the ``Clumpy'' models
-\cite{nenkova08a}. The SSPs span a grid of ages, metallicities, and
-dust attenuation and emission properties. The Clumpy models span a
-range of values for $\tau_V$, the number of clouds, and the
-distribution of clouds. Performed with a Python version of the {\tt
-  kcorrect} software \cite{blanton07b}, these nonnegative fits are
-extremely fast, taking a fraction of a second per galaxy.
+broad set of AGN templates from the ``Clumpy'' models of cloud
+distributions around AGN \cite{nenkova08a}. The SSPs span a grid of
+ages, metallicities, and dust attenuation and emission properties. The
+Clumpy models span a range of values for the cloud optical depth
+$\tau_V$, the number of clouds, and the distribution of
+clouds. Performed with a Python version of the {\tt kcorrect} software
+\cite{blanton07b}, these nonnegative fits are extremely fast, taking a
+fraction of a second per galaxy.
 
 Examples of some of these fits from our preliminary analysis of the
 MNSA sample can be seen in Figure \ref{fig:fits}. This figure
@@ -507,12 +520,14 @@ illustrates two points: (a) that the AGN hot dust emission reddens the
 W1$-$W2 color, and (b) that the AGN can be clearly detectable while
 still being a minority contributor to the W2 flux.
 
-We will characterize the luminosity of the AGN component at several
-wavelengths, concentrating primarily on 6 $\mu$m and 15 $\mu$m,
-commonly used reference points. We will use our error analysis (see
-below) to determine which wavelengths are most strongly constrained in
-the presence of modeling uncertainty and thus most suitable for
-bolometric luminosity estimates.
+We will characterize the luminosity of the AGN component of the SED
+fit by evaluating it at several wavelengths, concentrating primarily
+on 6 $\mu$m and 15 $\mu$m, commonly used reference points. We will use
+our error analysis (see below) to determine which wavelengths are most
+strongly constrained in the presence of modeling uncertainty and thus
+most suitable for bolometric luminosity estimates, and may adjust our
+reported luminosities to include the most strongly constrained
+wavelengths.
 
 For the MaNGA sample of bright galaxies, we anticipate that the 15
 $\mu$m luminosity will be much better measured and less contaminated
@@ -539,13 +554,13 @@ images from MaNGA as described in Figure \ref{fig:wise}.}
 \end{figure}
 
 For galaxies with identified AGN, our use of our fast SED fitting
-technique makes it straightforward to calculate uncertainties and
-upper limits. We will perform a large set of Monte Carlos on the data
-set, adding random errors to the fluxes of each galaxy based on the
-measurement uncertainties. The resulting distribution of Monte Carlo
-AGN luminosities provides an estimate of the errors that accounts for
-the statistical errors and for the wide variation we allow in the AGN
-and stellar population models.
+technique makes it straightforward to calculate uncertainties.  We
+will perform a large set of Monte Carlos on the data set, adding
+random errors to the fluxes of each galaxy based on the measurement
+uncertainties. The resulting distribution of Monte Carlo AGN
+luminosities provides an estimate of the errors that accounts for the
+statistical errors and for the wide variation we allow in the AGN and
+stellar population models.
 
 For galaxies without identified AGN, we can use the best fit SED to
 help determine the upper limit. First, we will determine a ``typical''
@@ -553,10 +568,11 @@ AGN SED from the fits to galaxies with mid-IR AGN; we will also
 determine this typical AGN SED as a function of each of sSFR, stellar
 mass, and Eddington ratio to test for systematic variations with any
 of those properties. Second, for each galaxy with no identified AGN we
-can determine how much typical AGN SED can be added to its best fit
-SED before it crosses our color threshold for AGN. The total mid-IR
-AGN luminosity in the model that just crosses the threshold is our
-estimate of the upper limit.
+can determine how much ``typical'' AGN SED can be added to its best
+fit SED before it crosses our color threshold for AGN. Our estimate of
+the upper limit will be be based the mid-IR AGN luminosity of the
+model that just crosses the threshold, including any AGN contribution
+to the best fit SED.
 
 There are inherent uncertainties in the SED fitting process related to
 our understanding of the SED models. We will explore the effects of
@@ -574,10 +590,11 @@ underlying grid of SED models we use for our final results.
 
 {\bf To assess the accuracy of our broad band WISE data analysis, we
   will analyze the AGN signatures and spectral shape found in Spitzer
-  Space Telescope spectra in the mid-IR compiled by \cite{lambrides19a}.}
-Of their full sample, 560 spectra are of low redshift galaxies with
-high quality GALEX, optical, and WISE imaging in the NASA Sloan Atlas
-(NSA; \cite{blanton11a}), and 30 spectra are in the MaNGA sample.  The
+  Space Telescope spectra in the mid-IR compiled by
+  \cite{lambrides19a}.}  Of the full sample in \cite{lambrides19a},
+560 spectra are of low redshift galaxies with high quality GALEX,
+optical, and WISE imaging in the NASA Sloan Atlas (NSA;
+\cite{blanton11a}), and 30 spectra are in the MaNGA sample.  The
 latter spectra are shown in Figure \ref{fig:spitzer}.
 
 \begin{figure}[t!]
@@ -611,15 +628,16 @@ on these indicators.
 
 The Spitzer spectra will also allow us to assess and refine our SED
 fitting to the WISE data. We will expand the SED analysis to include
-the NSA galaxies in the sample of \cite{lambrides19a}.  Then for both the
-NSA subsample and the MaNGA galaxies we will directly compare the
+the NSA galaxies in the sample of \cite{lambrides19a}.  Then for both
+the NSA subsample and the MaNGA galaxies we will directly compare the
 spectra we fit to WISE to the detailed Spitzer spectra, to determine
-whether the balance of PAH and hot dust emission is accurate. We will
-use these results to refine our choice of dust emission templates in
-our SED fitting. For the subset of spectra that are in MaNGA we can
-also determine the extent that physical properties such as stellar
-mass and star formation rate affect the SED modeling and can be used
-to improve its agreement with the Spitzer data.
+whether the balance of PAH and hot dust emission is accurate (because
+that balance is indicative of the AGN contribution relative to star
+formation). We will use these results to refine our choice of dust
+emission templates in our SED fitting. For the subset of spectra that
+are in MaNGA we can also determine the extent that physical properties
+such as stellar mass and star formation rate affect the SED modeling
+and can be used to improve its agreement with the Spitzer data.
 
 \subsection{Fitting Eddington Ratio Distributions}
 \label{sec:erd}
@@ -664,7 +682,7 @@ The upper limits are critical for this study since they allow
 us to utilize the many non-detections, which can provide important
 constraints on the distribution.
 
-Given ur sample size, we expect not to be able to determine the full
+Given our sample size, we expect not to be able to determine the full
 joint dependence on multiple properties (i.e. on all three of
 $M_\ast$, $\sigma$, and sSFR together). Instead, based on the results
 of fitting each dependence separately, we will search for residual
@@ -789,7 +807,7 @@ use for this work publicly available.
 \fbox{\parbox{\textwidth}{\bf The goals of this proposal are ambitious
     and carry some risk regarding whether we can identify as many
     mid-IR AGN as we hope and measure their luminosities well.  In
-    this section we describe how we will mitigate these risks and
+    this section, we describe how we will mitigate these risks and
     assess the performance of our methods. Additionally we argue that
     even if we cannot increase the local mid-IR AGN population as
     dramatically as planned, that would imply the discovery of
