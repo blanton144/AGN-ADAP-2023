@@ -43,7 +43,6 @@
 \renewcommand{\baselinestretch}{1.0}\normalsize
 
 % TODO
-% - fix refs
 % - How much lower luminosity?
 % - Better Spitzer spectra figure
 
@@ -98,7 +97,7 @@ understand the fundamental structure of the central gas and dust
 structure (the ``torus'') in AGN.
 
 %\newpage
-\section{Objectives \& Relevance: AGN and Galaxy Evolution}\label{sec:intro}
+\section{Objectives \& Relevance: AGN and Galaxy Evolution}\label{sec:objectives}
 
 \fbox{\parbox{\textwidth}{\bf This proposed work will establish a new
     low redshift baseline for the distribution of AGN luminosities as
@@ -199,7 +198,7 @@ luminosity and Eddington ratio distributions of AGN as a function of
 galaxy properties.  These observations will establish an important new
 low redshift constraint on galaxy formation simulations.
 
-\section{Scientific Impacts: AGN host galaxies and Eddington ratio distributions}\label{sec:intro}
+\section{Scientific Impacts: AGN host galaxies and Eddington ratio distributions}\label{sec:impacts}
 
 \fbox{\parbox{\textwidth}{\bf This work will establish more firmly
     than previously possible the relationship between mid-IR AGN and
@@ -228,7 +227,7 @@ more complicated, their signatures are often in competition with
 stellar emission and interstellar gas emission.  But the understanding
 of the AGN distribution is further hampered by the way that it is
 typically studied. Most AGN demographic focus on identifying AGN
-(\cite{kauffmann03b, lacy15a, sanchez19a, comerford20a, greene20a})
+(\cite{kauffmann03b, lacy15a, sanchez18a, comerford20a, greene20a})
 but {\it do not} determine the upper limits on luminosity caused by
 effects of host galaxy contamination (\cite{trump15a, jones17a} being
 rare exceptions). This approach clearly throws out important
@@ -575,7 +574,7 @@ underlying grid of SED models we use for our final results.
 
 {\bf To assess the accuracy of our broad band WISE data analysis, we
   will analyze the AGN signatures and spectral shape found in Spitzer
-  Space Telescope spectra in the mid-IR compiled by \cite{lambrides}.}
+  Space Telescope spectra in the mid-IR compiled by \cite{lambrides19a}.}
 Of their full sample, 560 spectra are of low redshift galaxies with
 high quality GALEX, optical, and WISE imaging in the NASA Sloan Atlas
 (NSA; \cite{blanton11a}), and 30 spectra are in the MaNGA sample.  The
@@ -585,7 +584,7 @@ latter spectra are shown in Figure \ref{fig:spitzer}.
 \includegraphics[width=0.92\textwidth]{all-spitzer.png}
     \caption{
 \label{fig:spitzer} \small Spitzer spectra for MaNGA galaxies
-from \cite{lambrides}. They are colored by W1$-$W2 (increasing
+from \cite{lambrides19a}. They are colored by W1$-$W2 (increasing
 in color from blue to red), and they are offset by arbitrary
 amounts for clarity. For various spectra, one can see 
 the silicon absorption  feature, PAH features, [O IV] 26 $\mu$m, 
@@ -595,7 +594,7 @@ and some high ionization lines such as [Ne V].
 
 The spectra provide mid-IR indicators that can be used to test our new
 criterion.  The PAH 6.2 $\mu$m equivalent and the silicon absorption
-depth have been measured for these spectra by \cite{lambrides}.  The
+depth have been measured for these spectra by \cite{lambrides19a}.  The
 PAH measurement is strong if the galaxy is dominated by star
 formation, but weak if the emission is dominated by the AGN
 \cite{sajina22a}.  The silicon absorption is typically a signature of
@@ -612,7 +611,7 @@ on these indicators.
 
 The Spitzer spectra will also allow us to assess and refine our SED
 fitting to the WISE data. We will expand the SED analysis to include
-the NSA galaxies in the sample of \cite{lambrides}.  Then for both the
+the NSA galaxies in the sample of \cite{lambrides19a}.  Then for both the
 NSA subsample and the MaNGA galaxies we will directly compare the
 spectra we fit to WISE to the detailed Spitzer spectra, to determine
 whether the balance of PAH and hot dust emission is accurate. We will
@@ -694,7 +693,7 @@ signal-to-noise ratio samples like SDSS Legacy and the upcoming DESI
 Bright Galaxy Survey) is the excellent measurements of $\sigma$ of the
 host galaxy. We will use several alternative versions of the $M_{\rm
   BH}$--$\sigma$ relation, including versions with second parameter
-dependencies (e.g. \cite{kormendy13a, vandenbosch16a, shankar16a}).
+dependencies (e.g. \cite{beifiori12a, kormendy13a, vandenbosch16a, shankar19a}).
 
 We then can define the Eddington ratio in the usual way as $\lambda =
 L_{\rm bol} / L_{\rm Edd}$, where $L_{\rm Edd}\propto M_{\rm BH}$.
@@ -825,8 +824,10 @@ envelopes of asymptotic giant branch stars can contribute to the W2
 band and again lead to redder W1$-$W2 \cite{villaume15a}. For our
 sample, with stellar masses mostly $> 10^9$ $M_\odot$ and redshifts
 $z<0.15$, our {\it a priori} expectation is that these effects are
-unlikely but possible---for example, the cyan points discussed in
-Figure \ref{fig:bpt} are possibly low metallicity star bursts. We can
+unlikely but possible.
+%---for example, the cyan points discussed in
+%Figure \ref{fig:bpt} are possibly low metallicity star bursts. 
+We can
 use the detailed MaNGA spectra to characterize metallicities and star
 formation histories, as well as the Spitzer spectra where available,
 which can help diagnose these unusual cases. If we can validate that
